@@ -32,14 +32,30 @@ function selectionSort(arr) {
   return arr
 }
 
-export function testSort() {
-  // const smallList = genIntList(20)
-  // console.log("testSort -> smallList", smallList)
-  // console.log("testSort -> bubbleSort", bubbleSort(smallList))
-  // console.log("testSort -> selectionSort", selectionSort(smallList))
+function insertionSort(arr) {
+  let len = arr.length,
+      currentValue,
+      j
+  for (let i = 1; i < len; i++) {
+    currentValue = arr[i]
 
-  const bigList = genIntList(200000)
+    for (j = i - 1; arr[j] > currentValue && j >= 0; j--)
+      arr[j+1] = arr[j]
+
+    arr[j+1] = currentValue
+  }
+  return arr
+}
+
+export function testSort() {
+  // const smallList = genIntList(15)
+  // console.log("testSort -> smallList ---", smallList)
+  // console.log("testSort -> bubbleSort --", bubbleSort(smallList))
+  // console.log("testSort -> selectionSort", selectionSort(smallList))
+  // console.log("testSort -> insertionSort", insertionSort(smallList))
+
+  const bigList = genIntList(100000)
   console.log("\n--------------- testSort bigList Start ---------------------\n")
-  comparePerformance(bigList, bubbleSort, selectionSort)
+  comparePerformance(bigList, bubbleSort, selectionSort, insertionSort)
   console.log("\n--------------- testSort bigList End ---------------------\n")
 }
