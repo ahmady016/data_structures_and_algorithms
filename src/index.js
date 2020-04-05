@@ -15,6 +15,7 @@ import { testFactorial } from './examples/factorial'
 import { testFibonacciNumbers } from './examples/fibonacciSequence'
 import { testCollectOdds } from './examples/collectOddValues'
 import { testSearch } from './examples/search'
+import { testSubStringSearch } from './examples/subStringSearch'
 
 //#region Basic Patterns
 
@@ -56,5 +57,6 @@ import { testSearch } from './examples/search'
 //#region Searching
 
 // testSearch()
+// testSubStringSearch()
 
 //#endregion
