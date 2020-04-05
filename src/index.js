@@ -14,8 +14,11 @@ import { testSumDownFrom } from './examples/sumDownFrom'
 import { testFactorial } from './examples/factorial'
 import { testFibonacciNumbers } from './examples/fibonacciSequence'
 import { testCollectOdds } from './examples/collectOddValues'
+
 import { testSearch } from './examples/search'
 import { testSubStringSearch } from './examples/subStringSearch'
+
+import { testSort } from './examples/sort'
 
 //#region Basic Patterns
 
@@ -58,5 +61,11 @@ import { testSubStringSearch } from './examples/subStringSearch'
 
 // testSearch()
 // testSubStringSearch()
+
+//#endregion
+
+//#region Searching
+
+testSort()
 
 //#endregion
