@@ -110,6 +110,36 @@ function quickSort(arr, start = 0, end = arr.length) {
 }
 //#endregion
 
+//#region RadixSort
+function getDigitOf(num, pos) {
+  return Math.floor(Math.abs(num) / Math.pow(10, pos)) % 10
+}
+function digitsCountByMath(num) {
+  if(num === 0) return 1
+  return Math.floor(Math.log10(Math.abs(num))) + 1
+}
+function digitsCountByString(num) {
+  return Math.abs(num).toString().length
+}
+const maxDigitsOf = digitsCountFn => numbers => {
+  let maxDigits = 0
+  for (let value of numbers)
+    maxDigits = Math.max(maxDigits, digitsCountFn(value))
+  return maxDigits
+}
+
+function radixSort(numbers) {
+  let maxDigits = maxDigitsOf(digitsCountByMath)(numbers)
+  for (let pos = 0; pos < maxDigits; pos++) {
+    let buckets = Array.from({ length: 10 }, () => [])
+    for (let i = 0; i < numbers.length; i++)
+      buckets[getDigitOf(numbers[i], pos)].push(numbers[i])
+    numbers = [].concat(...buckets)
+  }
+  return numbers
+}
+//#endregion
+
 //#region Test All Sort Algorithms
 export function testSort() {
   // const smallList = genIntList(15)
@@ -136,15 +166,31 @@ export function testSort() {
   // console.log("testSort -> list5 ==>", list5)
   // console.log("testSort -> quickSort", quickSort(list5))
 
+  // const list6 = [1321,-654,98798449,98,15,1651,98,-12]
+  // console.log("maxDigitsOf -> list5 ==>", list6)
+  // console.log("maxDigitsOf -> digitsCountByMath=>", maxDigitsOf(digitsCountByMath)(list6) )
+  // console.log("maxDigitsOf -> digitsCountByString", maxDigitsOf(digitsCountByString)(list6) )
+
+  // const list7 = genIntList(70000000)
+  // comparePerformance(list7, maxDigitsOf(digitsCountByMath), maxDigitsOf(digitsCountByString))
+
+  // const list8 = genIntList(10, true)
+  // console.log("testSort -> list8 ==>", list8)
+  // console.log("testSort -> radixSort", radixSort(list8))
+
   // const bigList = genIntList(100000)
   // console.log("\n--------------- testSort bigList Start ---------------------\n")
   // comparePerformance(bigList, bubbleSort, selectionSort, insertionSort)
   // console.log("\n--------------- testSort bigList End ---------------------\n")
 
   const midList = [...genSortedIntList(8000), ...genIntList(50)]
-  // console.log("testSort -> midList ==>", midList)
   console.log("\n--------------- testSort midList Start ---------------------\n")
-  comparePerformance(midList, bubbleSort, selectionSort, insertionSort, mergeSort, quickSort)
+  comparePerformance(midList, bubbleSort, selectionSort, insertionSort, mergeSort, quickSort, radixSort)
   console.log("\n--------------- testSort midList End ---------------------\n")
+
+  const bigList = genIntList(100000, true)
+  console.log("\n--------------- testSort bigList Start ---------------------\n")
+  comparePerformance(bigList, bubbleSort, selectionSort, insertionSort, radixSort)
+  console.log("\n--------------- testSort bigList End ---------------------\n")
 }
 //#endregion
