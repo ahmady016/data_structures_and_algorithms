@@ -1,5 +1,6 @@
 import { comparePerformance, genIntList, genSortedIntList } from '../_helpers'
 
+//#region 3 [Bubble - Selection - Insertion] Sort
 // function takes integer array and return it after sorting
 function bubbleSort(arr) {
   let swapped = false
@@ -46,7 +47,9 @@ function insertionSort(arr) {
   }
   return arr
 }
+//#endregion
 
+//#region MergeSort
 // function accept 2 sorted integer arrays and return the merged sorted result array
 function merge(arr1, arr2) {
   let result = [],
@@ -77,7 +80,37 @@ function mergeSort(arr) {
   let right = mergeSort(arr.slice(middleIndex))
   return merge(left, right)
 }
+//#endregion
 
+//#region QuickSort
+function swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]]
+}
+
+function pivot(arr, start = 0, end = arr.length) {
+  let pivotValue = arr[start],
+      indexToSwap = start
+
+  for (let i = start + 1; i < end; i++) {
+    if(arr[i] <= pivotValue)
+      swap(arr, ++indexToSwap, i)
+  }
+
+  swap(arr, start, indexToSwap)
+  return indexToSwap
+}
+
+function quickSort(arr, start = 0, end = arr.length) {
+  if(start < end) {
+    let pivotIndex = pivot(arr, start, end)
+    quickSort(arr, start, pivotIndex)
+    quickSort(arr, pivotIndex+1, end)
+  }
+  return arr
+}
+//#endregion
+
+//#region Test All Sort Algorithms
 export function testSort() {
   // const smallList = genIntList(15)
   // console.log("testSort -> smallList ---", smallList)
@@ -95,13 +128,23 @@ export function testSort() {
   // console.log("testSort -> list -", list3)
   // console.log("testSort -> mergeSort", mergeSort(list3))
 
+  // const list4 = genIntList(15)
+  // console.log("testSort -> list4 :", list4)
+  // console.log("testSort -> pivot", pivot(list4))
+
+  // const list5 = genIntList(10)
+  // console.log("testSort -> list5 ==>", list5)
+  // console.log("testSort -> quickSort", quickSort(list5))
+
   // const bigList = genIntList(100000)
   // console.log("\n--------------- testSort bigList Start ---------------------\n")
   // comparePerformance(bigList, bubbleSort, selectionSort, insertionSort)
   // console.log("\n--------------- testSort bigList End ---------------------\n")
 
-  const midList = genIntList(11000)
+  const midList = [...genSortedIntList(8000), ...genIntList(50)]
+  // console.log("testSort -> midList ==>", midList)
   console.log("\n--------------- testSort midList Start ---------------------\n")
-  comparePerformance(midList, bubbleSort, selectionSort, insertionSort, mergeSort)
+  comparePerformance(midList, bubbleSort, selectionSort, insertionSort, mergeSort, quickSort)
   console.log("\n--------------- testSort midList End ---------------------\n")
 }
+//#endregion
