@@ -1,4 +1,4 @@
-import { comparePerformance } from './../_helpers'
+import { comparePerformance } from '../_helpers'
 
 function charCountReduce(str) {
   return str

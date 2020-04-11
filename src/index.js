@@ -1,24 +1,24 @@
-import { testSumUpTo } from './examples/sumUpTo'
-import { testReverseString } from './examples/reverseString'
-import { testCharCount } from './examples/charCount'
+import { testSumUpTo } from './algorithms/sumUpTo'
+import { testReverseString } from './algorithms/reverseString'
+import { testCharCount } from './algorithms/charCount'
 
-import { testSameLists } from './examples/sameLists'
-import { testAnagramString } from './examples/isAnagram'
+import { testSameLists } from './algorithms/sameLists'
+import { testAnagramString } from './algorithms/isAnagram'
 
-import { testSumZeroPair } from './examples/sumZeroPair'
-import { testCountUniqueValues } from './examples/countUniqueValues'
+import { testSumZeroPair } from './algorithms/sumZeroPair'
+import { testCountUniqueValues } from './algorithms/countUniqueValues'
 
-import { testMaxSliceSum } from './examples/maxSliceSum'
+import { testMaxSliceSum } from './algorithms/maxSliceSum'
 
-import { testSumDownFrom } from './examples/sumDownFrom'
-import { testFactorial } from './examples/factorial'
-import { testFibonacciNumbers } from './examples/fibonacciSequence'
-import { testCollectOdds } from './examples/collectOddValues'
+import { testSumDownFrom } from './algorithms/sumDownFrom'
+import { testFactorial } from './algorithms/factorial'
+import { testFibonacciNumbers } from './algorithms/fibonacciSequence'
+import { testCollectOdds } from './algorithms/collectOddValues'
 
-import { testSearch } from './examples/search'
-import { testSubStringSearch } from './examples/subStringSearch'
+import { testSearch } from './algorithms/search'
+import { testSubStringSearch } from './algorithms/subStringSearch'
 
-import { testSort } from './examples/sort'
+import { testSort } from './algorithms/sort'
 
 //#region Basic Patterns
 
@@ -66,6 +66,6 @@ import { testSort } from './examples/sort'
 
 //#region Searching
 
-testSort()
+// testSort()
 
 //#endregion
