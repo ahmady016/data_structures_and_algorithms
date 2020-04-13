@@ -30,7 +30,7 @@ import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 
 // testSumUpTo()
 // testMissingNumbers()
-testChunks()
+// testChunks()
 // testReverseString()
 // testPalindromeString()
 // testCharCount()
@@ -40,7 +40,7 @@ testChunks()
 //#region Frequency Counter Pattern
 
 // testSameLists()
-// testAnagramString()
+testAnagramString()
 
 //#endregion
 
