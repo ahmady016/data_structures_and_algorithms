@@ -1,5 +1,6 @@
 import { testSumUpTo } from './algorithms/sumUpTo'
 import { testMissingNumbers } from './algorithms/missingNumbers'
+import { testChunks } from './algorithms/toChunks'
 import { testReverseString } from './algorithms/reverseString'
 import { testPalindromeString } from './algorithms/isPalindrome'
 import { testCharCount } from './algorithms/charCount'
@@ -29,6 +30,7 @@ import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 
 // testSumUpTo()
 // testMissingNumbers()
+testChunks()
 // testReverseString()
 // testPalindromeString()
 // testCharCount()
