@@ -26,6 +26,8 @@ import { testSort } from './algorithms/sort'
 import { SingleLinkedList } from './dataStructures/SingleLinkedList'
 import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 
+import { Stack, reverseString, isBalancedString } from './dataStructures/Stack'
+
 //#region Basic Patterns
 
 // testSumUpTo()
@@ -40,7 +42,7 @@ import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 //#region Frequency Counter Pattern
 
 // testSameLists()
-testAnagramString()
+// testAnagramString()
 
 //#endregion
 
@@ -321,5 +323,62 @@ testAnagramString()
 // console.log('log all nodes')
 // console.log('-------------')
 // console.log(dList.toArray())
+
+//#endregion
+
+//#region Stack
+let stack = new Stack()
+
+console.log('-------------')
+console.log('log all nodes')
+console.log('-------------')
+console.log(stack.toArray())
+
+console.log('-------------')
+console.log('push 5 nodes')
+console.log('-------------')
+console.log(stack.push(11))
+console.log(stack.push(12))
+console.log(stack.push(14))
+console.log(stack.push(16))
+console.log(stack.push(19))
+
+console.log('-------------')
+console.log('log all nodes')
+console.log('-------------')
+console.log(stack.toArray())
+
+console.log('-------------')
+console.log('pop 6 times')
+console.log('-------------')
+console.log(stack.pop())
+console.log(stack.pop())
+console.log(stack.pop())
+console.log(stack.pop())
+console.log(stack.pop())
+console.log(stack.pop())
+
+console.log('-------------')
+console.log('log all nodes')
+console.log('-------------')
+console.log(stack.toArray())
+
+console.log('-------------')
+console.log('reverse string')
+console.log('-------------')
+let str1 = 'Ahmed Hamdy Ali Khaled'
+console.log('The String ======>', str1)
+console.log('reversed String =>', reverseString(str1))
+
+console.log('-------------')
+console.log('isBalancedString')
+console.log('-------------')
+let str2 = '(Ahmed) [Hamdy] {Ali} <Khaled>'
+console.log('The String ======>', str2)
+console.log('Balanced String =>', isBalancedString(str2))
+
+let str3 = '(<Ahmed [Hamdy] {Ali} <Khaled>)'
+console.log('The String ======>', str3)
+console.log('Balanced String =>', isBalancedString(str3))
 
 //#endregion
