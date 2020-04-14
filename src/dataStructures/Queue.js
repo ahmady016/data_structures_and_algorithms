@@ -86,7 +86,7 @@ export function reverseQueue(queue) {
   return reversedQueue
 }
 
-// Implement Queue as [Fixed_Size] [Circular] [Array]
+// Implement Queue using [Fixed_Size] [Circular] [Array]
 export class ArrayQueue {
 
   constructor(size) {
@@ -127,6 +127,59 @@ export class ArrayQueue {
 
   toArray() {
     return this.items
+  }
+
+}
+
+// Implement Queue using [2 stacks]
+export class TwoStacksQueue {
+
+  constructor(...values) {
+    this.addStack = new Stack()
+    this.removeStack = new Stack()
+
+    if(values) {
+      for (let value of values)
+        this.enqueue(value)
+    }
+  }
+
+  moveAllFromAddStackToRemoveStack() {
+    while (!this.addStack.empty)
+      this.removeStack.push(this.addStack.pop())
+  }
+
+  get empty() {
+    return this.addStack.empty && this.removeStack.empty
+  }
+
+  get size() {
+    return this.addStack.size + this.removeStack.size
+  }
+
+  enqueue(value) {
+    this.addStack.push(value)
+    return this.size
+  }
+
+  dequeue() {
+    if(this.empty) return null
+
+    if(this.removeStack.empty) this.moveAllFromAddStackToRemoveStack()
+
+    return this.removeStack.pop()
+  }
+
+  peek() {
+    if(this.empty) return null
+
+    if(this.removeStack.empty) this.moveAllFromAddStackToRemoveStack()
+
+    return this.removeStack.peek()
+  }
+
+  toArray() {
+    return [...this.removeStack.toArray(), ...this.addStack.toArray().reverse()]
   }
 
 }
