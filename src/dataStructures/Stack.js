@@ -8,10 +8,14 @@ class Node {
 // LIFO [Last In First Out]
 export class Stack {
 
-  constructor() {
+  constructor(...values) {
     this.first = null
     this.last = null
     this.size = 0
+    if(values) {
+      for (let value of values)
+        this.push(value)
+    }
   }
 
   get empty() {
@@ -36,7 +40,7 @@ export class Stack {
 
     let removedNode = this.first
 
-    if(this.length === 1)
+    if(this.size === 1)
       this.first = this.last = null
     else
       this.first = removedNode.next

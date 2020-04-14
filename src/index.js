@@ -27,6 +27,7 @@ import { SingleLinkedList } from './dataStructures/SingleLinkedList'
 import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 
 import { Stack, reverseString, isBalancedString } from './dataStructures/Stack'
+import { Queue, reverseQueue, ArrayQueue } from './dataStructures/Queue'
 
 //#region Basic Patterns
 
@@ -327,58 +328,191 @@ import { Stack, reverseString, isBalancedString } from './dataStructures/Stack'
 //#endregion
 
 //#region Stack
-let stack = new Stack()
+// let stack = new Stack()
+
+// console.log('-------------')
+// console.log('log all nodes')
+// console.log('-------------')
+// console.log(stack.toArray())
+
+// console.log('-------------')
+// console.log('push 5 nodes')
+// console.log('-------------')
+// console.log(stack.push(11))
+// console.log(stack.push(12))
+// console.log(stack.push(14))
+// console.log(stack.push(16))
+// console.log(stack.push(19))
+
+// console.log('-------------')
+// console.log('log all nodes')
+// console.log('-------------')
+// console.log(stack.toArray())
+
+// console.log('-------------')
+// console.log('pop 6 times')
+// console.log('-------------')
+// console.log(stack.pop())
+// console.log(stack.pop())
+// console.log(stack.pop())
+// console.log(stack.pop())
+// console.log(stack.pop())
+// console.log(stack.pop())
+
+// console.log('-------------')
+// console.log('log all nodes')
+// console.log('-------------')
+// console.log(stack.toArray())
+
+// console.log('-------------')
+// console.log('reverse string')
+// console.log('-------------')
+// let str1 = 'Ahmed Hamdy Ali Khaled'
+// console.log('The String ======>', str1)
+// console.log('reversed String =>', reverseString(str1))
+
+// console.log('-------------')
+// console.log('isBalancedString')
+// console.log('-------------')
+// let str2 = '(Ahmed) [Hamdy] {Ali} <Khaled>'
+// console.log('The String ======>', str2)
+// console.log('Balanced String =>', isBalancedString(str2))
+
+// let str3 = '(<Ahmed [Hamdy] {Ali} <Khaled>)'
+// console.log('The String ======>', str3)
+// console.log('Balanced String =>', isBalancedString(str3))
+//#endregion
+
+//#region Queue
+// let queue = new Queue()
+
+// console.log('-------------')
+// console.log('log all nodes')
+// console.log('-------------')
+// console.log(queue.toArray())
+
+// console.log('-------------')
+// console.log('enqueue 5 nodes')
+// console.log('-------------')
+// console.log(queue.enqueue(11))
+// console.log(queue.enqueue(12))
+// console.log(queue.enqueue(14))
+// console.log(queue.enqueue(16))
+// console.log(queue.enqueue(19))
+
+// console.log('-------------')
+// console.log('log all nodes')
+// console.log('-------------')
+// console.log(queue.toArray())
+
+// console.log('-------------')
+// console.log('dequeue 6 times')
+// console.log('-------------')
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
+
+// console.log('-------------')
+// console.log('log all nodes')
+// console.log('-------------')
+// console.log(queue.toArray())
+
+// console.log('-------------')
+// console.log('reverse Queue')
+// console.log('-------------')
+// let queue2 = new Queue(11,16,19,21,24)
+// console.log('The Queue ======>', queue2.toArray())
+// console.log('reversed Queue =>', reverseQueue(queue2).toArray())
+
+// let arrayQueue = new ArrayQueue(10)
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayQueue.toArray())
+
+// console.log('-------------')
+// console.log('add 5 items')
+// console.log('-------------')
+// console.log(arrayQueue.enqueue(11))
+// console.log(arrayQueue.enqueue(12))
+// console.log(arrayQueue.enqueue(14))
+// console.log(arrayQueue.enqueue(16))
+// console.log(arrayQueue.enqueue(19))
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayQueue.toArray())
+
+// console.log('-------------')
+// console.log('poll 6 times')
+// console.log('-------------')
+// console.log(arrayQueue.dequeue())
+// console.log(arrayQueue.dequeue())
+// console.log(arrayQueue.dequeue())
+// console.log(arrayQueue.dequeue())
+// console.log(arrayQueue.dequeue())
+// console.log(arrayQueue.dequeue())
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayQueue.toArray())
+
+let arrayQueue2 = new ArrayQueue(5)
 
 console.log('-------------')
-console.log('log all nodes')
+console.log('log all items')
 console.log('-------------')
-console.log(stack.toArray())
+console.log(arrayQueue2.toArray())
 
 console.log('-------------')
-console.log('push 5 nodes')
+console.log('add 5 items')
 console.log('-------------')
-console.log(stack.push(11))
-console.log(stack.push(12))
-console.log(stack.push(14))
-console.log(stack.push(16))
-console.log(stack.push(19))
+console.log(arrayQueue2.enqueue(11))
+console.log(arrayQueue2.enqueue(22))
+console.log(arrayQueue2.enqueue(33))
+console.log(arrayQueue2.enqueue(44))
+console.log(arrayQueue2.enqueue(55))
 
 console.log('-------------')
-console.log('log all nodes')
+console.log('log all items')
 console.log('-------------')
-console.log(stack.toArray())
+console.log(arrayQueue2.toArray())
 
 console.log('-------------')
-console.log('pop 6 times')
+console.log('poll 2 items')
 console.log('-------------')
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
+console.log(arrayQueue2.dequeue())
+console.log(arrayQueue2.dequeue())
 
 console.log('-------------')
-console.log('log all nodes')
+console.log('log all items')
 console.log('-------------')
-console.log(stack.toArray())
+console.log(arrayQueue2.toArray())
 
 console.log('-------------')
-console.log('reverse string')
+console.log('add 2 items')
 console.log('-------------')
-let str1 = 'Ahmed Hamdy Ali Khaled'
-console.log('The String ======>', str1)
-console.log('reversed String =>', reverseString(str1))
+console.log(arrayQueue2.enqueue(66))
+console.log(arrayQueue2.enqueue(77))
 
 console.log('-------------')
-console.log('isBalancedString')
+console.log('log all items')
 console.log('-------------')
-let str2 = '(Ahmed) [Hamdy] {Ali} <Khaled>'
-console.log('The String ======>', str2)
-console.log('Balanced String =>', isBalancedString(str2))
+console.log(arrayQueue2.toArray())
 
-let str3 = '(<Ahmed [Hamdy] {Ali} <Khaled>)'
-console.log('The String ======>', str3)
-console.log('Balanced String =>', isBalancedString(str3))
+try {
+  console.log('-------------')
+  console.log('add 1 items')
+  console.log('-------------')
+  console.log(arrayQueue2.enqueue(88))
+} catch(error) {
+  console.log(error.message)
+}
 
 //#endregion
