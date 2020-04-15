@@ -27,7 +27,14 @@ import { SingleLinkedList } from './dataStructures/SingleLinkedList'
 import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 
 import { Stack, reverseString, isBalancedString } from './dataStructures/Stack'
-import { Queue, reverseQueue, ArrayQueue, TwoStacksQueue } from './dataStructures/Queue'
+import {
+	Queue,
+	reverseQueue,
+	ArrayQueue,
+	TwoStacksQueue,
+	PriorityQueue,
+	ArrayPriorityQueue,
+} from './dataStructures/Queue'
 
 //#region Basic Patterns
 
@@ -515,47 +522,133 @@ import { Queue, reverseQueue, ArrayQueue, TwoStacksQueue } from './dataStructure
 //   console.log(error.message)
 // }
 
-let twoStacksQueue = new TwoStacksQueue(1,1,2,3,5)
+// let twoStacksQueue = new TwoStacksQueue(1,1,2,3,5)
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(twoStacksQueue.toArray())
+
+// console.log('-------------')
+// console.log('add 5 items')
+// console.log('-------------')
+// console.log(twoStacksQueue.enqueue(8))
+// console.log(twoStacksQueue.enqueue(13))
+// console.log(twoStacksQueue.enqueue(21))
+// console.log(twoStacksQueue.enqueue(34))
+// console.log(twoStacksQueue.enqueue(55))
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(twoStacksQueue.toArray())
+
+// console.log('-------------')
+// console.log('poll 2 items')
+// console.log('-------------')
+// console.log(twoStacksQueue.dequeue())
+// console.log(twoStacksQueue.dequeue())
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(twoStacksQueue.toArray())
+
+// console.log('-------------')
+// console.log('add 2 items')
+// console.log('-------------')
+// console.log(twoStacksQueue.enqueue(66))
+// console.log(twoStacksQueue.enqueue(77))
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(twoStacksQueue.toArray())
+
+// let priorityQueue = new PriorityQueue(22,27,5,19,7)
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(priorityQueue.toArray())
+
+// console.log('-------------')
+// console.log('add 5 items')
+// console.log('-------------')
+// console.log(priorityQueue.enqueue(88))
+// console.log(priorityQueue.enqueue(13))
+// console.log(priorityQueue.enqueue(33))
+// console.log(priorityQueue.enqueue(24))
+// console.log(priorityQueue.enqueue(55))
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(priorityQueue.toArray())
+
+// console.log('-------------')
+// console.log('poll 2 items')
+// console.log('-------------')
+// console.log(priorityQueue.dequeue())
+// console.log(priorityQueue.dequeue())
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(priorityQueue.toArray())
+
+// console.log('-------------')
+// console.log('add 2 items')
+// console.log('-------------')
+// console.log(priorityQueue.enqueue(66))
+// console.log(priorityQueue.enqueue(49))
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(priorityQueue.toArray())
+
+let arrayPriorityQueue = new ArrayPriorityQueue(22,27,5,19,7)
 
 console.log('-------------')
 console.log('log all items')
 console.log('-------------')
-console.log(twoStacksQueue.toArray())
+console.log(arrayPriorityQueue.toArray())
 
 console.log('-------------')
 console.log('add 5 items')
 console.log('-------------')
-console.log(twoStacksQueue.enqueue(8))
-console.log(twoStacksQueue.enqueue(13))
-console.log(twoStacksQueue.enqueue(21))
-console.log(twoStacksQueue.enqueue(34))
-console.log(twoStacksQueue.enqueue(55))
+console.log(arrayPriorityQueue.enqueue(88))
+console.log(arrayPriorityQueue.enqueue(13))
+console.log(arrayPriorityQueue.enqueue(33))
+console.log(arrayPriorityQueue.enqueue(24))
+console.log(arrayPriorityQueue.enqueue(55))
 
 console.log('-------------')
 console.log('log all items')
 console.log('-------------')
-console.log(twoStacksQueue.toArray())
+console.log(arrayPriorityQueue.toArray())
 
 console.log('-------------')
 console.log('poll 2 items')
 console.log('-------------')
-console.log(twoStacksQueue.dequeue())
-console.log(twoStacksQueue.dequeue())
+console.log(arrayPriorityQueue.dequeue())
+console.log(arrayPriorityQueue.dequeue())
 
 console.log('-------------')
 console.log('log all items')
 console.log('-------------')
-console.log(twoStacksQueue.toArray())
+console.log(arrayPriorityQueue.toArray())
 
 console.log('-------------')
 console.log('add 2 items')
 console.log('-------------')
-console.log(twoStacksQueue.enqueue(66))
-console.log(twoStacksQueue.enqueue(77))
+console.log(arrayPriorityQueue.enqueue(29))
+console.log(arrayPriorityQueue.enqueue(31))
 
 console.log('-------------')
 console.log('log all items')
 console.log('-------------')
-console.log(twoStacksQueue.toArray())
+console.log(arrayPriorityQueue.toArray())
 
 //#endregion
