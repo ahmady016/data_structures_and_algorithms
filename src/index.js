@@ -4,6 +4,7 @@ import { testChunks } from './algorithms/toChunks'
 import { testReverseString } from './algorithms/reverseString'
 import { testPalindromeString } from './algorithms/isPalindrome'
 import { testCharCount } from './algorithms/charCount'
+import { testRepeatedCharacter } from './algorithms/firstRepeatedOrNonRepeatedCharacter'
 
 import { testSameLists } from './algorithms/sameLists'
 import { testAnagramString } from './algorithms/isAnagram'
@@ -29,11 +30,11 @@ import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 import { Stack, reverseString, isBalancedString } from './dataStructures/Stack'
 import {
 	Queue,
-	reverseQueue,
 	ArrayQueue,
 	TwoStacksQueue,
 	PriorityQueue,
 	ArrayPriorityQueue,
+	reverseQueue,
 } from './dataStructures/Queue'
 
 //#region Basic Patterns
@@ -44,6 +45,7 @@ import {
 // testReverseString()
 // testPalindromeString()
 // testCharCount()
+testRepeatedCharacter()
 
 //#endregion
 
@@ -608,47 +610,47 @@ import {
 // console.log('-------------')
 // console.log(priorityQueue.toArray())
 
-let arrayPriorityQueue = new ArrayPriorityQueue(22,27,5,19,7)
+// let arrayPriorityQueue = new ArrayPriorityQueue(22,27,5,19,7)
 
-console.log('-------------')
-console.log('log all items')
-console.log('-------------')
-console.log(arrayPriorityQueue.toArray())
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.toArray())
 
-console.log('-------------')
-console.log('add 5 items')
-console.log('-------------')
-console.log(arrayPriorityQueue.enqueue(88))
-console.log(arrayPriorityQueue.enqueue(13))
-console.log(arrayPriorityQueue.enqueue(33))
-console.log(arrayPriorityQueue.enqueue(24))
-console.log(arrayPriorityQueue.enqueue(55))
+// console.log('-------------')
+// console.log('add 5 items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.enqueue(88))
+// console.log(arrayPriorityQueue.enqueue(13))
+// console.log(arrayPriorityQueue.enqueue(33))
+// console.log(arrayPriorityQueue.enqueue(24))
+// console.log(arrayPriorityQueue.enqueue(55))
 
-console.log('-------------')
-console.log('log all items')
-console.log('-------------')
-console.log(arrayPriorityQueue.toArray())
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.toArray())
 
-console.log('-------------')
-console.log('poll 2 items')
-console.log('-------------')
-console.log(arrayPriorityQueue.dequeue())
-console.log(arrayPriorityQueue.dequeue())
+// console.log('-------------')
+// console.log('poll 2 items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.dequeue())
+// console.log(arrayPriorityQueue.dequeue())
 
-console.log('-------------')
-console.log('log all items')
-console.log('-------------')
-console.log(arrayPriorityQueue.toArray())
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.toArray())
 
-console.log('-------------')
-console.log('add 2 items')
-console.log('-------------')
-console.log(arrayPriorityQueue.enqueue(29))
-console.log(arrayPriorityQueue.enqueue(31))
+// console.log('-------------')
+// console.log('add 2 items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.enqueue(29))
+// console.log(arrayPriorityQueue.enqueue(31))
 
-console.log('-------------')
-console.log('log all items')
-console.log('-------------')
-console.log(arrayPriorityQueue.toArray())
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayPriorityQueue.toArray())
 
 //#endregion
