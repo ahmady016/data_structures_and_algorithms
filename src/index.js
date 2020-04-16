@@ -37,6 +37,8 @@ import {
 	reverseQueue,
 } from './dataStructures/Queue'
 
+import { ArrayHashTable } from './dataStructures/ArrayHashTable'
+
 //#region Basic Patterns
 
 // testSumUpTo()
@@ -45,7 +47,7 @@ import {
 // testReverseString()
 // testPalindromeString()
 // testCharCount()
-testRepeatedCharacter()
+// testRepeatedCharacter()
 
 //#endregion
 
@@ -652,5 +654,67 @@ testRepeatedCharacter()
 // console.log('log all items')
 // console.log('-------------')
 // console.log(arrayPriorityQueue.toArray())
+
+//#endregion
+
+//#region HashTable
+
+let hashTable = new ArrayHashTable(50)
+
+console.log('-------------')
+console.log('log all items')
+console.log('-------------')
+console.log(hashTable.toArray())
+
+console.log('-------------')
+console.log('add 5 items')
+console.log('-------------')
+console.log(hashTable.set('Black' ,'#000000'))
+console.log(hashTable.set('Maroon' ,'#800000'))
+console.log(hashTable.set('Green' ,'#008000'))
+console.log(hashTable.set('Gray' ,'#808080'))
+console.log(hashTable.set('Yellow' ,'#FFFF00'))
+console.log(hashTable.set('Yellow' ,'#FFFF00'))
+
+console.log('-------------')
+console.log('log all items')
+console.log('-------------')
+console.log(hashTable.toArray())
+
+console.log('-------------')
+console.log('get 2 items')
+console.log('-------------')
+console.log('Green ==>', hashTable.get('Green'))
+console.log('Yellow =>', hashTable.get('Yellow'))
+
+console.log('-------------')
+console.log('has 2 items')
+console.log('-------------')
+console.log('Green ==>', hashTable.has('Maroon'))
+console.log('Yellow =>', hashTable.has('Gray'))
+
+console.log('-------------')
+console.log('remove 2 items')
+console.log('-------------')
+console.log('Maroon ==>', hashTable.remove('Maroon'))
+console.log('Gray =>', hashTable.remove('Gray'))
+
+console.log('-------------')
+console.group('log all items')
+console.log('-------------')
+console.log(hashTable.toArray())
+console.groupEnd('log all items')
+
+console.log('-------------')
+console.group('log all keys')
+console.log('-------------')
+hashTable.keys.forEach(console.log)
+console.groupEnd('log all keys')
+
+console.log('-------------')
+console.group('log all values')
+console.log('-------------')
+hashTable.values.forEach(console.log)
+console.groupEnd('log all values')
 
 //#endregion
