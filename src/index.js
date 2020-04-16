@@ -38,6 +38,7 @@ import {
 } from './dataStructures/Queue'
 
 import { ArrayHashTable } from './dataStructures/ArrayHashTable'
+import { HashTable } from './dataStructures/HashTable'
 
 //#region Basic Patterns
 
@@ -659,7 +660,65 @@ import { ArrayHashTable } from './dataStructures/ArrayHashTable'
 
 //#region HashTable
 
-let hashTable = new ArrayHashTable(50)
+// let arrayHashTable = new ArrayHashTable(50)
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayHashTable.toArray())
+
+// console.log('-------------')
+// console.log('add 5 items')
+// console.log('-------------')
+// console.log(arrayHashTable.set('Black' ,'#000000'))
+// console.log(arrayHashTable.set('Maroon' ,'#800000'))
+// console.log(arrayHashTable.set('Green' ,'#008000'))
+// console.log(arrayHashTable.set('Gray' ,'#808080'))
+// console.log(arrayHashTable.set('Yellow' ,'#FFFF00'))
+// console.log(arrayHashTable.set('Yellow' ,'#FFFF00'))
+
+// console.log('-------------')
+// console.log('log all items')
+// console.log('-------------')
+// console.log(arrayHashTable.toArray())
+
+// console.log('-------------')
+// console.log('get 2 items')
+// console.log('-------------')
+// console.log('Green ==>', arrayHashTable.get('Green'))
+// console.log('Yellow =>', arrayHashTable.get('Yellow'))
+
+// console.log('-------------')
+// console.log('has 2 items')
+// console.log('-------------')
+// console.log('Green ==>', arrayHashTable.has('Maroon'))
+// console.log('Yellow =>', arrayHashTable.has('Gray'))
+
+// console.log('-------------')
+// console.log('remove 2 items')
+// console.log('-------------')
+// console.log('Maroon ==>', arrayHashTable.remove('Maroon'))
+// console.log('Gray =>', arrayHashTable.remove('Gray'))
+
+// console.log('-------------')
+// console.group('log all items')
+// console.log('-------------')
+// console.log(arrayHashTable.toArray())
+// console.groupEnd('log all items')
+
+// console.log('-------------')
+// console.group('log all keys')
+// console.log('-------------')
+// arrayHashTable.keys.forEach(console.log)
+// console.groupEnd('log all keys')
+
+// console.log('-------------')
+// console.group('log all values')
+// console.log('-------------')
+// arrayHashTable.values.forEach(console.log)
+// console.groupEnd('log all values')
+
+let hashTable = new HashTable(50)
 
 console.log('-------------')
 console.log('log all items')
@@ -669,12 +728,12 @@ console.log(hashTable.toArray())
 console.log('-------------')
 console.log('add 5 items')
 console.log('-------------')
-console.log(hashTable.set('Black' ,'#000000'))
-console.log(hashTable.set('Maroon' ,'#800000'))
-console.log(hashTable.set('Green' ,'#008000'))
-console.log(hashTable.set('Gray' ,'#808080'))
-console.log(hashTable.set('Yellow' ,'#FFFF00'))
-console.log(hashTable.set('Yellow' ,'#FFFF00'))
+console.log(hashTable.put('Black' ,'#000000'))
+console.log(hashTable.put('Maroon' ,'#800000'))
+console.log(hashTable.put('Green' ,'#008000'))
+console.log(hashTable.put('Gray' ,'#808080'))
+console.log(hashTable.put('Yellow' ,'#FFFF00'))
+console.log(hashTable.put('Yellow' ,'#FFFF00'))
 
 console.log('-------------')
 console.log('log all items')
@@ -697,24 +756,21 @@ console.log('-------------')
 console.log('remove 2 items')
 console.log('-------------')
 console.log('Maroon ==>', hashTable.remove('Maroon'))
-console.log('Gray =>', hashTable.remove('Gray'))
+console.log('Gray ====>', hashTable.remove('Gray'))
 
 console.log('-------------')
-console.group('log all items')
+console.log('log all items')
 console.log('-------------')
 console.log(hashTable.toArray())
-console.groupEnd('log all items')
 
 console.log('-------------')
 console.group('log all keys')
 console.log('-------------')
 hashTable.keys.forEach(console.log)
-console.groupEnd('log all keys')
 
 console.log('-------------')
 console.group('log all values')
 console.log('-------------')
 hashTable.values.forEach(console.log)
-console.groupEnd('log all values')
 
 //#endregion
