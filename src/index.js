@@ -41,6 +41,7 @@ import { ArrayHashTable } from './dataStructures/ArrayHashTable'
 import { HashTable } from './dataStructures/HashTable'
 
 import { BinarySearchTree } from './dataStructures/BinarySearchTree'
+import { AVLTree } from './dataStructures/AVLTree'
 
 //#region Basic Patterns
 
@@ -779,156 +780,208 @@ import { BinarySearchTree } from './dataStructures/BinarySearchTree'
 
 //#region BinarySearchTree
 
-let tree1 = new BinarySearchTree()
+// let tree1 = new BinarySearchTree()
+
+// console.log('-------------')
+// console.log('add 7 items to tree1')
+// console.log('-------------')
+// console.log(tree1.insert(7))
+// console.log(tree1.insert(4))
+// console.log(tree1.insert(9))
+// console.log(tree1.insert(1))
+// console.log(tree1.insert(6))
+// console.log(tree1.insert(8))
+// console.log(tree1.insert(10))
+
+// console.log('-------------')
+// console.log('log has [10, 11]')
+// console.log('-------------')
+// console.log(tree1.has(10))
+// console.log(tree1.has(11))
+
+// console.log('-------------')
+// console.log('log find [7, 11]')
+// console.log('-------------')
+// console.log(tree1.find(7))
+// console.log(tree1.find(11))
+
+// console.log('-------------')
+// console.log('log tree1 all items BFT')
+// console.log('-------------')
+// console.log(tree1.toArray('BFT'))
+
+// console.log('-------------')
+// console.log('log tree1 all items DFTInOrder ')
+// console.log('-------------')
+// console.log(tree1.toArray('DFTInOrder'))
+
+// console.log('-------------')
+// console.log('log tree1 all items DFTPreOrder')
+// console.log('-------------')
+// console.log(tree1.toArray('DFTPreOrder'))
+
+// console.log('-------------')
+// console.log('log tree1 all items DFTPostOrder')
+// console.log('-------------')
+// console.log(tree1.toArray('DFTPostOrder'))
+
+// console.log('-------------')
+// console.log('log height of [7, 9, 10]')
+// console.log('-------------')
+// console.log(tree1.height(tree1.root))
+// console.log(tree1.height(tree1.find(9)))
+// console.log(tree1.height(tree1.find(10)))
+
+// console.log('-------------')
+// console.log('log minValue of tree')
+// console.log('-------------')
+// console.log(tree1.minValue())
+
+// console.log('-------------')
+// console.log('log maxValue of tree')
+// console.log('-------------')
+// console.log(tree1.maxValue())
+
+// console.log('-------------')
+// console.log('log (min, max) of tree')
+// console.log('-------------')
+// console.log(tree1.min())
+// console.log(tree1.max())
+
+// let tree2 = new BinarySearchTree()
+
+// console.log('-------------')
+// console.log('add 7 items to tree2')
+// console.log('-------------')
+// console.log(tree2.insert(7))
+// console.log(tree2.insert(4))
+// console.log(tree2.insert(9))
+// console.log(tree2.insert(1))
+// console.log(tree2.insert(6))
+// console.log(tree2.insert(8))
+// console.log(tree2.insert(10))
+
+// console.log('-------------')
+// console.log('log tree2 all items DFTInOrder ')
+// console.log('-------------')
+// console.log(tree2.toArray('DFTInOrder'))
+
+// console.log('-------------------------')
+// console.log('log equality of (tree1, tree2)')
+// console.log('-------------------------')
+// console.log(BinarySearchTree.equals(tree1.root, tree2.root))
+
+// let tree3 = new BinarySearchTree()
+
+// console.log('-------------')
+// console.log('add 7 items to tree3')
+// console.log('-------------')
+// console.log(tree3.insert(10))
+// console.log(tree3.insert(7))
+// console.log(tree3.insert(5))
+// console.log(tree3.insert(9))
+// console.log(tree3.insert(17))
+// console.log(tree3.insert(12))
+// console.log(tree3.insert(19))
+
+// console.log('-------------')
+// console.log('log tree3 all items DFTInOrder ')
+// console.log('-------------')
+// console.log(tree3.toArray('DFTInOrder'))
+
+// console.log('-------------------------')
+// console.log('log equality of (tree2, tree3)')
+// console.log('-------------------------')
+// console.log(BinarySearchTree.equals(tree2.root, tree3.root))
+
+// // swap the left, right to make it not valid BST
+// let temp = tree3.root.left
+// tree3.root.left = tree3.root.right
+// tree3.root.right = temp
+
+// console.log('-------------------------')
+// console.log('log isValidBST of (tree1, tree2, tree3)')
+// console.log('-------------------------')
+// console.log(tree1.isValidBST(tree1.root, Number.MIN_VALUE, Number.MAX_VALUE))
+// console.log(tree2.isValidBST(tree2.root, Number.MIN_VALUE, Number.MAX_VALUE))
+// console.log(tree3.isValidBST(tree3.root, Number.MIN_VALUE, Number.MAX_VALUE))
+
+// console.log('-------------')
+// console.log('log nodesAtDistance(0)')
+// console.log('-------------')
+// console.log(tree1.getNodesAtDistance(0))
+
+// console.log('-------------')
+// console.log('log nodesAtDistance(1)')
+// console.log('-------------')
+// console.log(tree1.getNodesAtDistance(1))
+
+// console.log('-------------')
+// console.log('log nodesAtDistance(2)')
+// console.log('-------------')
+// console.log(tree1.getNodesAtDistance(2))
+
+// console.log('-------------')
+// console.log('log nodesAtDistance(3)')
+// console.log('-------------')
+// console.log(tree1.getNodesAtDistance(3))
+
+
+// console.log('-------------')
+// console.log('log levelOrderTraverse')
+// console.log('-------------')
+// console.log(tree1.LevelOrderTraverse())
+
+//#endregion
+
+//#region BinarySearchTree
+
+let avlTree1 = new AVLTree()
 
 console.log('-------------')
-console.log('add 7 items to tree1')
+console.log('add 7 items to avlTree1')
 console.log('-------------')
-console.log(tree1.insert(7))
-console.log(tree1.insert(4))
-console.log(tree1.insert(9))
-console.log(tree1.insert(1))
-console.log(tree1.insert(6))
-console.log(tree1.insert(8))
-console.log(tree1.insert(10))
+console.log(avlTree1.insert(7))
+console.log(avlTree1.insert(4))
+console.log(avlTree1.insert(9))
+console.log(avlTree1.insert(1))
+console.log(avlTree1.insert(6))
+console.log(avlTree1.insert(8))
+console.log(avlTree1.insert(10))
 
 console.log('-------------')
-console.log('log has [10, 11]')
+console.log('log avlTree1 all values [LevelOrder]')
 console.log('-------------')
-console.log(tree1.has(10))
-console.log(tree1.has(11))
+console.log(avlTree1.toArray().map(node => node.value))
 
 console.log('-------------')
-console.log('log find [7, 11]')
+console.log('log avlTree1 all nodes [LevelOrder]')
 console.log('-------------')
-console.log(tree1.find(7))
-console.log(tree1.find(11))
+console.log(avlTree1.toArray().map(({ value, height, balance }) => ({ value, height, balance })))
+
+let avlTree2 = new AVLTree()
 
 console.log('-------------')
-console.log('log tree1 all items BFT')
+console.log('add 4 items to avlTree1')
 console.log('-------------')
-console.log(tree1.toArray('BFT'))
+console.log(avlTree2.insert(30))
+console.log(avlTree2.insert(20))
+console.log(avlTree2.insert(10))
+console.log(avlTree2.insert(5))
 
 console.log('-------------')
-console.log('log tree1 all items DFTInOrder ')
+console.log('log avlTree2 all values [LevelOrder]')
 console.log('-------------')
-console.log(tree1.toArray('DFTInOrder'))
+console.log(avlTree2.toArray())
 
 console.log('-------------')
-console.log('log tree1 all items DFTPreOrder')
+console.log('log avlTree2 all values [LevelOrder]')
 console.log('-------------')
-console.log(tree1.toArray('DFTPreOrder'))
+console.log(avlTree2.toArray().map(node => node.value))
 
 console.log('-------------')
-console.log('log tree1 all items DFTPostOrder')
+console.log('log avlTree2 all nodes [LevelOrder]')
 console.log('-------------')
-console.log(tree1.toArray('DFTPostOrder'))
-
-console.log('-------------')
-console.log('log height of [7, 9, 10]')
-console.log('-------------')
-console.log(tree1.height(tree1.root))
-console.log(tree1.height(tree1.find(9)))
-console.log(tree1.height(tree1.find(10)))
-
-console.log('-------------')
-console.log('log minValue of tree')
-console.log('-------------')
-console.log(tree1.minValue())
-
-console.log('-------------')
-console.log('log maxValue of tree')
-console.log('-------------')
-console.log(tree1.maxValue())
-
-console.log('-------------')
-console.log('log (min, max) of tree')
-console.log('-------------')
-console.log(tree1.min())
-console.log(tree1.max())
-
-let tree2 = new BinarySearchTree()
-
-console.log('-------------')
-console.log('add 7 items to tree2')
-console.log('-------------')
-console.log(tree2.insert(7))
-console.log(tree2.insert(4))
-console.log(tree2.insert(9))
-console.log(tree2.insert(1))
-console.log(tree2.insert(6))
-console.log(tree2.insert(8))
-console.log(tree2.insert(10))
-
-console.log('-------------')
-console.log('log tree2 all items DFTInOrder ')
-console.log('-------------')
-console.log(tree2.toArray('DFTInOrder'))
-
-console.log('-------------------------')
-console.log('log equality of (tree1, tree2)')
-console.log('-------------------------')
-console.log(BinarySearchTree.equals(tree1.root, tree2.root))
-
-let tree3 = new BinarySearchTree()
-
-console.log('-------------')
-console.log('add 7 items to tree3')
-console.log('-------------')
-console.log(tree3.insert(10))
-console.log(tree3.insert(7))
-console.log(tree3.insert(5))
-console.log(tree3.insert(9))
-console.log(tree3.insert(17))
-console.log(tree3.insert(12))
-console.log(tree3.insert(19))
-
-console.log('-------------')
-console.log('log tree3 all items DFTInOrder ')
-console.log('-------------')
-console.log(tree3.toArray('DFTInOrder'))
-
-console.log('-------------------------')
-console.log('log equality of (tree2, tree3)')
-console.log('-------------------------')
-console.log(BinarySearchTree.equals(tree2.root, tree3.root))
-
-// swap the left, right to make it not valid BST
-let temp = tree3.root.left
-tree3.root.left = tree3.root.right
-tree3.root.right = temp
-
-console.log('-------------------------')
-console.log('log isValidBST of (tree1, tree2, tree3)')
-console.log('-------------------------')
-console.log(tree1.isValidBST(tree1.root, Number.MIN_VALUE, Number.MAX_VALUE))
-console.log(tree2.isValidBST(tree2.root, Number.MIN_VALUE, Number.MAX_VALUE))
-console.log(tree3.isValidBST(tree3.root, Number.MIN_VALUE, Number.MAX_VALUE))
-
-console.log('-------------')
-console.log('log nodesAtDistance(0)')
-console.log('-------------')
-console.log(tree1.getNodesAtDistance(0))
-
-console.log('-------------')
-console.log('log nodesAtDistance(1)')
-console.log('-------------')
-console.log(tree1.getNodesAtDistance(1))
-
-console.log('-------------')
-console.log('log nodesAtDistance(2)')
-console.log('-------------')
-console.log(tree1.getNodesAtDistance(2))
-
-console.log('-------------')
-console.log('log nodesAtDistance(3)')
-console.log('-------------')
-console.log(tree1.getNodesAtDistance(3))
-
-
-console.log('-------------')
-console.log('log levelOrderTraverse')
-console.log('-------------')
-console.log(tree1.LevelOrderTraverse())
+console.log(avlTree2.toArray().map(({ value, height, balance }) => ({ value, height, balance })))
 
 //#endregion
