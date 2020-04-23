@@ -43,6 +43,14 @@ import { HashTable } from './dataStructures/HashTable'
 import { BinarySearchTree } from './dataStructures/BinarySearchTree'
 import { AVLTree } from './dataStructures/AVLTree'
 
+import {
+	MaxBinaryHeap,
+	sort,
+	PriorityQueueHeap,
+	heapify,
+	getNthLargest,
+} from './dataStructures/MaxBinaryHeap'
+
 //#region Basic Patterns
 
 // testSumUpTo()
@@ -934,54 +942,150 @@ import { AVLTree } from './dataStructures/AVLTree'
 
 //#endregion
 
-//#region BinarySearchTree
+//#region AVLTree
 
-let avlTree1 = new AVLTree()
+// let avlTree1 = new AVLTree()
 
-console.log('-------------')
-console.log('add 7 items to avlTree1')
-console.log('-------------')
-console.log(avlTree1.insert(7))
-console.log(avlTree1.insert(4))
-console.log(avlTree1.insert(9))
-console.log(avlTree1.insert(1))
-console.log(avlTree1.insert(6))
-console.log(avlTree1.insert(8))
-console.log(avlTree1.insert(10))
+// console.log('-------------')
+// console.log('add 7 items to avlTree1')
+// console.log('-------------')
+// console.log(avlTree1.insert(7))
+// console.log(avlTree1.insert(4))
+// console.log(avlTree1.insert(9))
+// console.log(avlTree1.insert(1))
+// console.log(avlTree1.insert(6))
+// console.log(avlTree1.insert(8))
+// console.log(avlTree1.insert(10))
 
-console.log('-------------')
-console.log('log avlTree1 all values [LevelOrder]')
-console.log('-------------')
-console.log(avlTree1.toArray().map(node => node.value))
+// console.log('-------------')
+// console.log('log avlTree1 all values [LevelOrder]')
+// console.log('-------------')
+// console.log(avlTree1.toArray().map(node => node.value))
 
-console.log('-------------')
-console.log('log avlTree1 all nodes [LevelOrder]')
-console.log('-------------')
-console.log(avlTree1.toArray().map(({ value, height, balance }) => ({ value, height, balance })))
+// console.log('-------------')
+// console.log('log avlTree1 all nodes [LevelOrder]')
+// console.log('-------------')
+// console.log(avlTree1.toArray().map(({ value, height, balance }) => ({ value, height, balance })))
 
-let avlTree2 = new AVLTree()
+// let avlTree2 = new AVLTree()
 
-console.log('-------------')
-console.log('add 4 items to avlTree1')
-console.log('-------------')
-console.log(avlTree2.insert(30))
-console.log(avlTree2.insert(20))
-console.log(avlTree2.insert(10))
-console.log(avlTree2.insert(5))
+// console.log('-------------')
+// console.log('add 4 items to avlTree1')
+// console.log('-------------')
+// console.log(avlTree2.insert(30))
+// console.log(avlTree2.insert(20))
+// console.log(avlTree2.insert(10))
+// console.log(avlTree2.insert(5))
 
-console.log('-------------')
-console.log('log avlTree2 all values [LevelOrder]')
-console.log('-------------')
-console.log(avlTree2.toArray())
+// console.log('-------------')
+// console.log('log avlTree2 all values [LevelOrder]')
+// console.log('-------------')
+// console.log(avlTree2.toArray())
 
-console.log('-------------')
-console.log('log avlTree2 all values [LevelOrder]')
-console.log('-------------')
-console.log(avlTree2.toArray().map(node => node.value))
+// console.log('-------------')
+// console.log('log avlTree2 all values [LevelOrder]')
+// console.log('-------------')
+// console.log(avlTree2.toArray().map(node => node.value))
 
-console.log('-------------')
-console.log('log avlTree2 all nodes [LevelOrder]')
-console.log('-------------')
-console.log(avlTree2.toArray().map(({ value, height, balance }) => ({ value, height, balance })))
+// console.log('-------------')
+// console.log('log avlTree2 all nodes [LevelOrder]')
+// console.log('-------------')
+// console.log(avlTree2.toArray().map(({ value, height, balance }) => ({ value, height, balance })))
+
+//#endregion
+
+//#region BinaryHeap
+
+//#region MaxBinaryHeap
+
+// let maxHeap1 = new MaxBinaryHeap()
+
+// console.log('-------------')
+// console.log('add 7 items to maxHeap')
+// console.log('-------------')
+// console.log(maxHeap1.insert(10))
+// console.log(maxHeap1.insert(5))
+// console.log(maxHeap1.insert(17))
+// console.log(maxHeap1.insert(4))
+// console.log(maxHeap1.insert(22))
+// console.log(maxHeap1.insert(11))
+// console.log(maxHeap1.insert(29))
+
+// console.log('-------------')
+// console.log('log maxHeap1 values')
+// console.log('-------------')
+// console.log(maxHeap1.toArray())
+
+// console.log('-------------')
+// console.log('remove first item')
+// console.log('-------------')
+// console.log(maxHeap1.remove())
+
+// console.log('-------------')
+// console.log('log maxHeap1 values')
+// console.log('-------------')
+// console.log(maxHeap1.toArray())
+
+// console.log('-------------')
+// console.log('test sort an array')
+// console.log('-------------')
+// console.log('arr ==========>', [22,11,43,19,7,64,33])
+// console.log('ascending ====>', sort([22,11,43,19,7,64,33], 'ascending'))
+// console.log('descending ===>', sort([22,11,43,19,7,64,33], 'descending'))
+
+// console.log('-------------')
+// console.log('test heapify an array')
+// console.log('-------------')
+// console.log('arr ==========>', [5,11,22,19,7,43,79])
+// console.log('heapified ====>', heapify([5,11,22,19,7,43,79]))
+
+// console.log('-------------')
+// console.log('test getNthLargest of an array')
+// console.log('-------------')
+// let arr = [5, 11, 22, 19, 7, 43, 79, 99, 87, 3]
+// console.log('arr ==========>', arr)
+// console.log('nth = 0 ====>', getNthLargest(arr, 0))
+// console.log('nth = 1 ====>', getNthLargest(arr, 1))
+// console.log('nth = 3 ====>', getNthLargest(arr, 3))
+// console.log('nth = 5 ====>', getNthLargest(arr, 5))
+// console.log('nth = 7 ====>', getNthLargest(arr, 7))
+// console.log('nth = 9 ====>', getNthLargest(arr, 9))
+// console.log('nth = 11 ====>', getNthLargest(arr, 11))
+
+//#endregion
+
+//#region PriorityQueue using MinBinaryHeap
+
+// let emergencyQueue = new PriorityQueueHeap()
+
+// console.log('-------------')
+// console.log('add 7 items to emergencyQueue')
+// console.log('-------------')
+// console.log(emergencyQueue.enqueue({ value: 'common cold', priority: 7 }))
+// console.log(emergencyQueue.enqueue({ value: 'high fever', priority: 5 }))
+// console.log(emergencyQueue.enqueue({ value: 'glass wound', priority: 6 }))
+// console.log(emergencyQueue.enqueue({ value: 'gunshot wound', priority: 1 }))
+// console.log(emergencyQueue.enqueue({ value: 'Knife wound', priority: 3 }))
+// console.log(emergencyQueue.enqueue({ value: 'broken arm', priority: 4 }))
+// console.log(emergencyQueue.enqueue({ value: 'car accident', priority: 2 }))
+
+// console.log('-------------')
+// console.log('log emergencyQueue values')
+// console.log('-------------')
+// console.log(emergencyQueue.toArray())
+
+// console.log('-------------------------')
+// console.log('get items by its priority')
+// console.log('-------------------------')
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+// console.log(emergencyQueue.dequeue())
+
+//#endregion
 
 //#endregion
