@@ -51,6 +51,8 @@ import {
 	getNthLargest,
 } from './dataStructures/MaxBinaryHeap'
 
+import { Trie } from './dataStructures/Trie'
+
 //#region Basic Patterns
 
 // testSumUpTo()
@@ -1087,5 +1089,70 @@ import {
 // console.log(emergencyQueue.dequeue())
 
 //#endregion
+
+//#endregion
+
+//#region Trie
+
+let trie = new Trie()
+
+console.log('-------------')
+console.log('add 9 words to trie')
+console.log('-------------')
+console.log('cat ======>', trie.insert('cat')			)
+console.log('can ======>', trie.insert('can')			)
+console.log('car ======>', trie.insert('car')			)
+console.log('carpet ===>', trie.insert('carpet')	)
+console.log('cannon ===>', trie.insert('cannon')	)
+console.log('canyon ===>', trie.insert('canyon')	)
+console.log('catch ====>', trie.insert('catch')		)
+console.log('captain ==>', trie.insert('captain')	)
+console.log('cable ====>', trie.insert('cable')		)
+
+console.log('-------------')
+console.log('log contains 4 words')
+console.log('-------------')
+console.log('cat ======>', trie.contains('cat')			)
+console.log('cascade ==>', trie.contains('cascade')	)
+console.log('can ======>', trie.contains('can')			)
+console.log('cabab ====>', trie.contains('cabab')		)
+
+console.log('-------------')
+console.log('log contains 2 words')
+console.log('-------------')
+console.log('carpet ====>', trie.contains('carpet')	)
+console.log('canyon ====>', trie.contains('canyon')	)
+console.log('charCount =>', trie.charCount					)
+
+console.log('-------------')
+console.log('test findAllWordsOf 5 prefix')
+console.log('-------------')
+console.log('ca =====>', trie.findAllWordsOf('ca')		)
+console.log('can ====>', trie.findAllWordsOf('can')		)
+console.log('car ====>', trie.findAllWordsOf('car')		)
+console.log('cat ====>', trie.findAllWordsOf('cat')		)
+console.log('card ===>', trie.findAllWordsOf('card')	)
+console.log('null ===>', trie.findAllWordsOf()				)
+
+console.log('-------------')
+console.log('test remove 2 words')
+console.log('-------------')
+console.log('carpet ==>', trie.remove('carpet')	)
+console.log('canyon ==>', trie.remove('canyon')	)
+
+console.log('-------------')
+console.log('log contains 2 words')
+console.log('-------------')
+console.log('carpet ====>', trie.contains('carpet')	)
+console.log('canyon ====>', trie.contains('canyon')	)
+console.log('car =======>', trie.contains('car')		)
+console.log('can =======>', trie.contains('can')		)
+console.log('charCount =>', trie.charCount					)
+
+console.log('-------------')
+console.log('test trie traverse')
+console.log('-------------')
+console.log('preOrder ===>', trie.traverse('preOrder')	)
+console.log('postOrder ==>', trie.traverse('postOrder')	)
 
 //#endregion
