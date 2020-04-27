@@ -28,6 +28,7 @@ import { SingleLinkedList } from './dataStructures/SingleLinkedList'
 import { DoubleLinkedList } from './dataStructures/DoubleLinkedList'
 
 import { Stack, reverseString, isBalancedString } from './dataStructures/Stack'
+
 import {
 	Queue,
 	ArrayQueue,
@@ -53,7 +54,11 @@ import {
 
 import { Trie } from './dataStructures/Trie'
 
-import { SimpleGraph, ComplexGraph } from './dataStructures/Graph'
+import {
+	SimpleGraph,
+	ComplexGraph,
+	UndirectedGraph,
+} from './dataStructures/Graph'
 
 //#region Basic Patterns
 
@@ -1195,6 +1200,21 @@ import { SimpleGraph, ComplexGraph } from './dataStructures/Graph'
 // console.log('vertexCount =>', graph1.vertexCount)
 
 // console.log('-------------')
+// console.log('log graph [Depth First Traverse]')
+// console.log('-------------')
+// console.log('start from Cairo [recursiveDFT] =>', graph1.recursiveDFT('Cairo'))
+// console.log('start from Giza [recursiveDFT] ==>', graph1.recursiveDFT('Giza')	)
+
+// console.log('start from Cairo [iterativeDFT] =>', graph1.iterativeDFT('Cairo'))
+// console.log('start from Giza [iterativeDFT] ==>', graph1.iterativeDFT('Giza')	)
+
+// console.log('-------------')
+// console.log('log graph [Breadth First Traverse]')
+// console.log('-------------')
+// console.log('start from Cairo [iterativeBFT] =>', graph1.iterativeBFT('Cairo'))
+// console.log('start from Giza [iterativeBFT] ==>', graph1.iterativeBFT('Giza'))
+
+// console.log('-------------')
 // console.log('remove vertex from graph')
 // console.log('-------------')
 // console.log('Aswan ==>', graph1.removeVertex('Aswan'))
@@ -1205,48 +1225,115 @@ import { SimpleGraph, ComplexGraph } from './dataStructures/Graph'
 // console.log('graphVertex =>', graph1)
 // console.log('vertexCount =>', graph1.vertexCount)
 
-let graph2 = new ComplexGraph()
+// let graph2 = new ComplexGraph()
+
+// console.log('-------------')
+// console.log('add 5 cities (nodes) to graph')
+// console.log('-------------')
+// console.log('Cairo ==>', graph2.addNode('Cairo')	)
+// console.log('Alex ===>', graph2.addNode('Alex')	)
+// console.log('Asyut ==>', graph2.addNode('Asyut')	)
+// console.log('Giza ===>', graph2.addNode('Giza')	)
+// console.log('Aswan ==>', graph2.addNode('Aswan')	)
+
+// console.log('-------------')
+// console.log('log graph nodes')
+// console.log('-------------')
+// console.log('graphNods =>', graph2.toString())
+// console.log('nodesCount =>', graph2.nodesCount)
+
+// console.log('-------------')
+// console.log('add 6 edges to graph')
+// console.log('-------------')
+// console.log('Cairo => Alex ====>', graph2.addEdge('Cairo', 'Alex')		)
+// console.log('Cairo => Asyut ===>', graph2.addEdge('Cairo', 'Asyut')	)
+// console.log('Aswan => Cairo ===>', graph2.addEdge('Aswan', 'Cairo')	)
+// console.log('Aswan => Alex ====>', graph2.addEdge('Aswan', 'Alex')		)
+// console.log('Giza ==> Aswan ===>', graph2.addEdge('Giza', 'Aswan')		)
+// console.log('Giza ==> Asyut ===>', graph2.addEdge('Giza', 'Asyut')		)
+
+// console.log('-------------')
+// console.log('log graph nodes')
+// console.log('-------------')
+// console.log('graphNods =>', graph2.toString())
+// console.log('nodesCount =>', graph2.nodesCount)
+
+// console.log('-------------')
+// console.log('log graph [Depth First Traverse]')
+// console.log('-------------')
+// console.log('start from Cairo [recursiveDFT] =>', graph2.recursiveDFT('Cairo'))
+// console.log('start from Cairo [iterativeDFT] =>', graph2.iterativeDFT('Cairo'))
+
+// console.log('start from Giza [recursiveDFT] ==>', graph2.recursiveDFT('Giza')	)
+// console.log('start from Giza [iterativeDFT] ==>', graph2.iterativeDFT('Giza')	)
+
+// console.log('-------------')
+// console.log('log graph [Breadth First Traverse]')
+// console.log('-------------')
+// console.log('start from Cairo [iterativeBFT] =>', graph2.iterativeBFT('Cairo'))
+// console.log('start from Giza [iterativeBFT] ==>', graph2.iterativeBFT('Giza'))
+
+// console.log('-------------')
+// console.log('remove node from graph')
+// console.log('-------------')
+// console.log('Aswan ==>', graph2.removeNode('Aswan'))
+
+// console.log('-------------')
+// console.log('log graph nodes')
+// console.log('-------------')
+// console.log('graphNods =>', graph2.toString())
+// console.log('nodesCount =>', graph2.nodesCount)
+
+// let graph3 = new UndirectedGraph()
+
+// console.log('-------------')
+// console.log('add 5 nodes to graph')
+// console.log('-------------')
+// console.log('X ==>', graph3.addNode('X'))
+// console.log('A ==>', graph3.addNode('A'))
+// console.log('B ==>', graph3.addNode('B'))
+// console.log('P ==>', graph3.addNode('P'))
+
+// console.log('-------------')
+// console.log('add 4 edges to graph')
+// console.log('-------------')
+// console.log('X => A', graph3.addEdge('X', 'A'))
+// console.log('X => B', graph3.addEdge('X', 'B'))
+// console.log('A => P', graph3.addEdge('A', 'P'))
+// console.log('B => P', graph3.addEdge('B', 'P'))
+
+// console.log('-------------')
+// console.log('test topologicalSort on graph')
+// console.log('-------------')
+// console.log(graph3.topologicalSort())
+
+let graph4 = new UndirectedGraph()
 
 console.log('-------------')
-console.log('add 5 cities (nodes) to graph')
+console.log('add 3 nodes to graph')
 console.log('-------------')
-console.log('Cairo ==>', graph2.addNode('Cairo')	)
-console.log('Alex ===>', graph2.addNode('Alex')	)
-console.log('Asyut ==>', graph2.addNode('Asyut')	)
-console.log('Giza ===>', graph2.addNode('Giza')	)
-console.log('Aswan ==>', graph2.addNode('Aswan')	)
+console.log('A ==>', graph4.addNode('A'))
+console.log('B ==>', graph4.addNode('B'))
+console.log('C ==>', graph4.addNode('C'))
 
 console.log('-------------')
-console.log('log graph nodes')
+console.log('add 3 edges to graph')
 console.log('-------------')
-console.log('graphNods =>', graph2.toString())
-console.log('nodesCount =>', graph2.nodesCount)
+console.log('A => B', graph4.addEdge('A', 'B'))
+console.log('B => C', graph4.addEdge('B', 'C'))
+console.log('A => C', graph4.addEdge('A', 'C'))
 
 console.log('-------------')
-console.log('add 6 edges to graph')
+console.log('hasCycle =>', graph4.hasCycle())
 console.log('-------------')
-console.log('Cairo => Alex ====>', graph2.addEdge('Cairo', 'Alex')		)
-console.log('Cairo => Asyut ===>', graph2.addEdge('Cairo', 'Asyut')	)
-console.log('Aswan => Cairo ===>', graph2.addEdge('Aswan', 'Cairo')	)
-console.log('Aswan => Alex ====>', graph2.addEdge('Aswan', 'Alex')		)
-console.log('Giza ==> Aswan ===>', graph2.addEdge('Giza', 'Aswan')		)
-console.log('Giza ==> Asyut ===>', graph2.addEdge('Giza', 'Asyut')		)
 
 console.log('-------------')
-console.log('log graph nodes')
+console.log('add (cycle) edge to graph')
 console.log('-------------')
-console.log('graphNods =>', graph2.toString())
-console.log('nodesCount =>', graph2.nodesCount)
+console.log('C => A', graph4.addEdge('C', 'A'))
 
 console.log('-------------')
-console.log('remove node from graph')
+console.log('hasCycle =>', graph4.hasCycle())
 console.log('-------------')
-console.log('Aswan ==>', graph2.removeNode('Aswan'))
-
-console.log('-------------')
-console.log('log graph nodes')
-console.log('-------------')
-console.log('graphNods =>', graph2.toString())
-console.log('nodesCount =>', graph2.nodesCount)
 
 //#endregion
