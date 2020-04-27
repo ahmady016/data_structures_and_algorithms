@@ -1,3 +1,4 @@
+//#region SimpleGraph
 export class SimpleGraph {
 
   constructor() {
@@ -102,7 +103,9 @@ export class SimpleGraph {
   }
 
 }
+//#endregion
 
+//#region ComplexGraph
 class Node {
   constructor(name) {
     this.name = name
@@ -112,7 +115,6 @@ class Node {
     return this.name
   }
 }
-
 export class ComplexGraph {
 
   constructor() {
@@ -227,7 +229,9 @@ export class ComplexGraph {
   }
 
 }
+//#endregion
 
+//#region DirectedGraph
 export class DirectedGraph {
 
   constructor() {
@@ -345,7 +349,110 @@ export class DirectedGraph {
   }
 
 }
+//#endregion
 
+//#region SimpleWeightedGraph
+class ArrayPriorityQueue {
+  constructor() {
+    this.items = []
+  }
+  _sort() {
+    this.items.sort((a, b) => a.priority - b.priority)
+  }
+  enqueue(value, priority) {
+    this.items.push({ value, priority })
+    this._sort()
+  }
+  dequeue() {
+    return this.items.shift()
+  }
+}
+export class SimpleWeightedGraph {
+
+  constructor() {
+    this.vertexList = new Map()
+  }
+
+  get count() {
+    return this.vertexList.size
+  }
+
+  addVertex(vertexName) {
+    this.vertexList.set(vertexName, [])
+    return this.count
+  }
+
+  addEdge(fromName, toName, weight) {
+    let fromNode = this.vertexList.get(fromName),
+        toNode = this.vertexList.get(toName)
+
+    if(!fromNode || !toNode) return false
+
+    fromNode.push({ toNode: toName, weight })
+    toNode.push({ toNode: fromName, weight })
+    return true
+  }
+
+  shortestPathBetween(fromName, toName) {
+    let nodes = new ArrayPriorityQueue(),
+        paths = new Map(),
+        currentVertex,
+        candidateDistance,
+        currentPath,
+        result = []
+
+    // build initial state
+    for (let vertex of this.vertexList.keys()) {
+      if(vertex === fromName) {
+        paths.set(vertex, { distance: 0, previous: null })
+        nodes.enqueue(vertex, 0)
+      } else {
+        paths.set(vertex, { distance: Infinity, previous: null })
+        nodes.enqueue(vertex, Infinity)
+      }
+    }
+    // loop as long as there is vertex to visit
+    while(nodes.items.length) {
+      currentVertex = nodes.dequeue().value
+      if(currentVertex === toName) {
+        // build up the shortest path and break
+        while(paths.get(currentVertex).previous) {
+          result.push(currentVertex)
+          currentVertex = paths.get(currentVertex).previous
+        }
+        break
+      }
+      if(currentVertex || paths.get(currentVertex).distance !== Infinity) {
+        for (let edge of this.vertexList.get(currentVertex)) {
+          // calc new distance between currentVertex and edge.toNode
+          candidateDistance = paths.get(currentVertex).distance + edge.weight
+          currentPath = paths.get(edge.toNode)
+          if(candidateDistance < currentPath.distance) {
+            // updating distance to new smallest distance
+            currentPath.distance = candidateDistance
+            // updating previous [where we came from]
+            currentPath.previous = currentVertex
+            // enqueue with new priority
+            nodes.enqueue(edge.toNode, candidateDistance)
+          }
+        }
+      }
+    }
+    // return the result
+    return result.concat(currentVertex).reverse()
+  }
+
+  toString() {
+    let result = '\n'
+    for (let [key, value] of this.vertexList)
+      result += `${key} => ${ value.length ? value.map(item => `[${key} <=${item.weight}=> ${item.toNode}]`) : '[]'}\n`
+    return result
+  }
+
+}
+//#endregion
+
+//#region ComplexWeightedGraph
 class Edge {
   constructor(from, to, weight) {
     this.from = from
@@ -405,3 +512,4 @@ export class ComplexWeightedGraph {
   }
 
 }
+//#endregion

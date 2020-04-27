@@ -58,7 +58,8 @@ import {
 	SimpleGraph,
 	ComplexGraph,
 	DirectedGraph,
-	ComplexWeightedGraph
+	ComplexWeightedGraph,
+	SimpleWeightedGraph
 } from './dataStructures/Graph'
 
 //#region Basic Patterns
@@ -1337,25 +1338,62 @@ import {
 // console.log('hasCycle =>', graph4.hasCycle())
 // console.log('-------------')
 
-let weightedGraph = new ComplexWeightedGraph()
+let simpleWeightedGraph = new SimpleWeightedGraph()
+
+console.log('--------------------')
+console.log('add 6 vertexes to graph')
+console.log('--------------------')
+console.log('A =>', simpleWeightedGraph.addVertex('A'))
+console.log('B =>', simpleWeightedGraph.addVertex('B'))
+console.log('C =>', simpleWeightedGraph.addVertex('C'))
+console.log('D =>', simpleWeightedGraph.addVertex('D'))
+console.log('E =>', simpleWeightedGraph.addVertex('E'))
+console.log('F =>', simpleWeightedGraph.addVertex('F'))
 
 console.log('-------------')
-console.log('add 3 nodes to graph')
+console.log('add 8 edges to graph')
 console.log('-------------')
-console.log('Cairo ====>', weightedGraph.addNode('Cairo')		)
-console.log('Giza =====>', weightedGraph.addNode('Giza')		)
-console.log('Benisuef =>', weightedGraph.addNode('Benisuef'))
-
-console.log('-------------')
-console.log('add 2 edges to graph')
-console.log('-------------')
-console.log('Cairo => Giza =====>', weightedGraph.addEdge('Cairo', 'Giza', 90)			)
-console.log('Cairo => Benisuef =>', weightedGraph.addEdge('Cairo', 'Benisuef', 140)	)
+console.log('A <==> B', simpleWeightedGraph.addEdge('A', 'B', 4))
+console.log('A <==> C', simpleWeightedGraph.addEdge('A', 'C', 2))
+console.log('B <==> E', simpleWeightedGraph.addEdge('B', 'E', 3))
+console.log('C <==> D', simpleWeightedGraph.addEdge('C', 'D', 2))
+console.log('C <==> F', simpleWeightedGraph.addEdge('C', 'F', 4))
+console.log('D <==> E', simpleWeightedGraph.addEdge('D', 'E', 3))
+console.log('D <==> F', simpleWeightedGraph.addEdge('D', 'F', 1))
+console.log('E <==> F', simpleWeightedGraph.addEdge('E', 'F', 1))
 
 console.log('--------------------------')
 console.log('log graph nodes')
 console.log('--------------------------')
-console.log('graphNods ==>', weightedGraph.toString())
-console.log('nodesCount =>', weightedGraph.nodesCount)
+console.log('graphNods ==>', simpleWeightedGraph.toString())
+console.log('nodesCount =>', simpleWeightedGraph.count)
+
+console.log('--------------------------')
+console.log('test shortest Path')
+console.log('--------------------------')
+console.log('A => E', simpleWeightedGraph.shortestPathBetween('A','E'))
+console.log('A => F', simpleWeightedGraph.shortestPathBetween('A','F'))
+console.log('A => D', simpleWeightedGraph.shortestPathBetween('A','D'))
+
+// let complexWeightedGraph = new ComplexWeightedGraph()
+
+// console.log('-------------')
+// console.log('add 3 nodes to graph')
+// console.log('-------------')
+// console.log('Cairo ====>', complexWeightedGraph.addNode('Cairo')		)
+// console.log('Giza =====>', complexWeightedGraph.addNode('Giza')		)
+// console.log('Benisuef =>', complexWeightedGraph.addNode('Benisuef'))
+
+// console.log('-------------')
+// console.log('add 2 edges to graph')
+// console.log('-------------')
+// console.log('Cairo => Giza =====>', complexWeightedGraph.addEdge('Cairo', 'Giza', 90)			)
+// console.log('Cairo => Benisuef =>', complexWeightedGraph.addEdge('Cairo', 'Benisuef', 140)	)
+
+// console.log('--------------------------')
+// console.log('log graph nodes')
+// console.log('--------------------------')
+// console.log('graphNods ==>', complexWeightedGraph.toString())
+// console.log('nodesCount =>', complexWeightedGraph.nodesCount)
 
 //#endregion
