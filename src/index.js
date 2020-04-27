@@ -57,7 +57,7 @@ import { Trie } from './dataStructures/Trie'
 import {
 	SimpleGraph,
 	ComplexGraph,
-	UndirectedGraph,
+	directedGraph,
 } from './dataStructures/Graph'
 
 //#region Basic Patterns
@@ -1307,7 +1307,7 @@ import {
 // console.log('-------------')
 // console.log(graph3.topologicalSort())
 
-let graph4 = new UndirectedGraph()
+let graph4 = new directedGraph()
 
 console.log('-------------')
 console.log('add 3 nodes to graph')

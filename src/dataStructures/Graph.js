@@ -228,7 +228,7 @@ export class ComplexGraph {
 
 }
 
-export class UndirectedGraph {
+export class directedGraph {
 
   constructor() {
     this.nodes = new Map()
