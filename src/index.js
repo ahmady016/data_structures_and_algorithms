@@ -57,7 +57,8 @@ import { Trie } from './dataStructures/Trie'
 import {
 	SimpleGraph,
 	ComplexGraph,
-	directedGraph,
+	DirectedGraph,
+	ComplexWeightedGraph
 } from './dataStructures/Graph'
 
 //#region Basic Patterns
@@ -1307,33 +1308,54 @@ import {
 // console.log('-------------')
 // console.log(graph3.topologicalSort())
 
-let graph4 = new directedGraph()
+// let graph4 = new DirectedGraph()
+
+// console.log('-------------')
+// console.log('add 3 nodes to graph')
+// console.log('-------------')
+// console.log('A ==>', graph4.addNode('A'))
+// console.log('B ==>', graph4.addNode('B'))
+// console.log('C ==>', graph4.addNode('C'))
+
+// console.log('-------------')
+// console.log('add 3 edges to graph')
+// console.log('-------------')
+// console.log('A => B', graph4.addEdge('A', 'B'))
+// console.log('B => C', graph4.addEdge('B', 'C'))
+// console.log('A => C', graph4.addEdge('A', 'C'))
+
+// console.log('-------------')
+// console.log('hasCycle =>', graph4.hasCycle())
+// console.log('-------------')
+
+// console.log('-------------')
+// console.log('add (cycle) edge to graph')
+// console.log('-------------')
+// console.log('C => A', graph4.addEdge('C', 'A'))
+
+// console.log('-------------')
+// console.log('hasCycle =>', graph4.hasCycle())
+// console.log('-------------')
+
+let weightedGraph = new ComplexWeightedGraph()
 
 console.log('-------------')
 console.log('add 3 nodes to graph')
 console.log('-------------')
-console.log('A ==>', graph4.addNode('A'))
-console.log('B ==>', graph4.addNode('B'))
-console.log('C ==>', graph4.addNode('C'))
+console.log('Cairo ====>', weightedGraph.addNode('Cairo')		)
+console.log('Giza =====>', weightedGraph.addNode('Giza')		)
+console.log('Benisuef =>', weightedGraph.addNode('Benisuef'))
 
 console.log('-------------')
-console.log('add 3 edges to graph')
+console.log('add 2 edges to graph')
 console.log('-------------')
-console.log('A => B', graph4.addEdge('A', 'B'))
-console.log('B => C', graph4.addEdge('B', 'C'))
-console.log('A => C', graph4.addEdge('A', 'C'))
+console.log('Cairo => Giza =====>', weightedGraph.addEdge('Cairo', 'Giza', 90)			)
+console.log('Cairo => Benisuef =>', weightedGraph.addEdge('Cairo', 'Benisuef', 140)	)
 
-console.log('-------------')
-console.log('hasCycle =>', graph4.hasCycle())
-console.log('-------------')
-
-console.log('-------------')
-console.log('add (cycle) edge to graph')
-console.log('-------------')
-console.log('C => A', graph4.addEdge('C', 'A'))
-
-console.log('-------------')
-console.log('hasCycle =>', graph4.hasCycle())
-console.log('-------------')
+console.log('--------------------------')
+console.log('log graph nodes')
+console.log('--------------------------')
+console.log('graphNods ==>', weightedGraph.toString())
+console.log('nodesCount =>', weightedGraph.nodesCount)
 
 //#endregion

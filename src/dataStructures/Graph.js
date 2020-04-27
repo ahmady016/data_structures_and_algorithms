@@ -228,7 +228,7 @@ export class ComplexGraph {
 
 }
 
-export class directedGraph {
+export class DirectedGraph {
 
   constructor() {
     this.nodes = new Map()
@@ -341,6 +341,66 @@ export class directedGraph {
     let result = '\n'
     for (let [key, value] of this.relations)
       result += `${key.name} ==> ${ value.length ? value : '[]'}\n`
+    return result
+  }
+
+}
+
+class Edge {
+  constructor(from, to, weight) {
+    this.from = from
+    this.to = to
+    this.weight = weight
+  }
+  toString() {
+    return `${this.from} <==${this.weight}==> ${this.to}`
+  }
+}
+class GNode {
+
+  constructor(name) {
+    this.name = name
+    this.edges = new Set()
+  }
+
+  addEdge(toNode, weight) {
+    this.edges.add(new Edge(this, toNode, weight))
+  }
+
+  toString() {
+    return this.name
+  }
+
+}
+export class ComplexWeightedGraph {
+
+  constructor() {
+    this.nodes = new Map()
+  }
+
+  get nodesCount() {
+    return this.nodes.size
+  }
+
+  addNode(name) {
+    this.nodes.set(name, new GNode(name))
+    return this.nodes.size
+  }
+
+  addEdge(fromName, toName, weight) {
+    let fromNode = this.nodes.get(fromName),
+        toNode = this.nodes.get(toName)
+    if(!fromNode || !toNode) return false
+
+    fromNode.addEdge(toNode, weight)
+    toNode.addEdge(fromNode, weight)
+    return true
+  }
+
+  toString() {
+    let result = '\n'
+    for (let node of this.nodes.values())
+      result += `${node.name} ==> ${ node.edges.size ? [...node.edges] : '[]'}\n`
     return result
   }
 
