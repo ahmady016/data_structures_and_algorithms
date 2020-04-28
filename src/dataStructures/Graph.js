@@ -1,3 +1,6 @@
+import { PriorityQueueHeap } from "./MaxBinaryHeap"
+import { Stack } from "./Stack"
+
 //#region SimpleGraph
 export class SimpleGraph {
 
@@ -359,7 +362,7 @@ class ArrayPriorityQueue {
   _sort() {
     this.items.sort((a, b) => a.priority - b.priority)
   }
-  enqueue(value, priority) {
+  enqueue({ value, priority }) {
     this.items.push({ value, priority })
     this._sort()
   }
@@ -394,7 +397,7 @@ export class SimpleWeightedGraph {
   }
 
   shortestPathBetween(fromName, toName) {
-    let nodes = new ArrayPriorityQueue(),
+    let nodes = new PriorityQueueHeap(), // ArrayPriorityQueue(),
         paths = new Map(),
         currentVertex,
         candidateDistance,
@@ -405,10 +408,10 @@ export class SimpleWeightedGraph {
     for (let vertex of this.vertexList.keys()) {
       if(vertex === fromName) {
         paths.set(vertex, { distance: 0, previous: null })
-        nodes.enqueue(vertex, 0)
+        nodes.enqueue({ value: vertex, priority: 0 })
       } else {
         paths.set(vertex, { distance: Infinity, previous: null })
-        nodes.enqueue(vertex, Infinity)
+        nodes.enqueue({ value: vertex, priority: Infinity })
       }
     }
     // loop as long as there is vertex to visit
@@ -422,7 +425,7 @@ export class SimpleWeightedGraph {
         }
         break
       }
-      if(currentVertex || paths.get(currentVertex).distance !== Infinity) {
+      if(currentVertex || paths.get(currentVertex)?.distance !== Infinity) {
         for (let edge of this.vertexList.get(currentVertex)) {
           // calc new distance between currentVertex and edge.toNode
           candidateDistance = paths.get(currentVertex).distance + edge.weight
@@ -433,7 +436,7 @@ export class SimpleWeightedGraph {
             // updating previous [where we came from]
             currentPath.previous = currentVertex
             // enqueue with new priority
-            nodes.enqueue(edge.toNode, candidateDistance)
+            nodes.enqueue({ value: edge.toNode, priority: candidateDistance })
           }
         }
       }
@@ -502,6 +505,63 @@ export class ComplexWeightedGraph {
     fromNode.addEdge(toNode, weight)
     toNode.addEdge(fromNode, weight)
     return true
+  }
+
+  _buildFullPath(paths, destination) {
+    let resultPath = [],
+        stack = new Stack(destination),
+        previous = paths.get(destination).previous
+
+    while(previous) {
+      stack.push(previous)
+      previous = paths.get(previous).previous
+    }
+
+    while(!stack.empty)
+      resultPath.push(stack.pop().name)
+
+    return resultPath
+  }
+
+  getShortestPathBetween(fromName, toName) {
+    let fromNode = this.nodes.get(fromName),
+        toNode = this.nodes.get(toName)
+
+    if(!fromNode)
+      throw new Error('Invalid From Node')
+    if(!toNode)
+      throw new Error('Invalid To Node')
+
+    let paths = new Map(),
+        visited = new Set(),
+        queue = new PriorityQueueHeap(),
+        currentNode, newDistance, currentPath
+
+    for (let node of this.nodes.values()) {
+      (node.name === fromName)
+        ? paths.set(node, { distance: 0, previous: null })
+        : paths.set(node, { distance: Number.MAX_VALUE, previous: null })
+    }
+
+    queue.enqueue({ value: fromNode, priority: 0 })
+    while(!queue.empty) {
+      currentNode = queue.dequeue().value
+      visited.add(currentNode)
+
+      for (let edge of currentNode.edges) {
+        if(visited.has(edge.to)) continue
+
+        currentPath = paths.get(edge.to)
+        newDistance = paths.get(currentNode).distance + edge.weight
+        if(newDistance < currentPath.distance) {
+          currentPath.distance = newDistance
+          currentPath.previous = currentNode
+          queue.enqueue({ value: edge.to, priority: newDistance })
+        }
+      }
+    }
+
+    return this._buildFullPath(paths, toNode)
   }
 
   toString() {
