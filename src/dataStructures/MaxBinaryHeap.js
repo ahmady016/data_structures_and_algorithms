@@ -222,8 +222,9 @@ class Node {
 
 export class PriorityQueueHeap {
 
-  constructor() {
+  constructor(list) {
     this.items = []
+    if(list?.length) this.enqueueRange(list)
   }
 
   get empty() {
@@ -320,6 +321,10 @@ export class PriorityQueueHeap {
     }
 
     return root
+  }
+
+  enqueueRange(list) {
+    for (let item of list) this.enqueue(item)
   }
 
   toArray() {

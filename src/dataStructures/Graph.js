@@ -488,6 +488,10 @@ export class ComplexWeightedGraph {
     this.nodes = new Map()
   }
 
+  get empty() {
+    return this.nodes.size === 0
+  }
+
   get nodesCount() {
     return this.nodes.size
   }
@@ -505,6 +509,10 @@ export class ComplexWeightedGraph {
     fromNode.addEdge(toNode, weight)
     toNode.addEdge(fromNode, weight)
     return true
+  }
+
+  hasNode(name) {
+    return this.nodes.has(name)
   }
 
   _buildFullPath(paths, destination) {
@@ -562,6 +570,64 @@ export class ComplexWeightedGraph {
     }
 
     return this._buildFullPath(paths, toNode)
+  }
+
+  _hasCycleHelper(currentNode, parentNode, visited) {
+    visited.add(currentNode)
+
+    for (let edge of currentNode.edges) {
+      if (edge.to.name === parentNode?.name)
+        continue
+      if (visited.has(edge.to) ||
+        this._hasCycleHelper(edge.to, currentNode, visited))
+        return true
+    }
+
+    return false
+  }
+
+  hasCycle() {
+    let visited = new Set()
+
+    for (let node of this.nodes.values()) {
+      if (!visited.has(node) &&
+          this._hasCycleHelper(node, null, visited)
+         )
+        return true
+    }
+
+    return false
+  }
+
+  getMinSpanningTree() {
+    let tree = new ComplexWeightedGraph()
+    if(this.empty) return tree
+
+    let startNode = this.nodes.values().next().value
+    tree.addNode(startNode.name)
+    if(!startNode.edges.size) return tree
+
+    let edgesQueue = new PriorityQueueHeap(
+      [...startNode.edges].map(edge => ({ value: edge, priority: edge.weight }))
+    )
+
+    let minEdge, currentNode, nextNode
+    while(tree.nodesCount < this.nodesCount) {
+      minEdge = edgesQueue.dequeue().value
+      currentNode = minEdge.from
+      nextNode = minEdge.to
+
+      if(tree.hasNode(nextNode.name)) continue
+
+      tree.addNode(nextNode.name)
+      tree.addEdge(currentNode.name, nextNode.name, minEdge.weight)
+
+      for (let edge of nextNode.edges)
+        if(!tree.hasNode(edge.to.name))
+          edgesQueue.enqueue({ value: edge, priority: edge.weight })
+    }
+
+    return tree
   }
 
   toString() {

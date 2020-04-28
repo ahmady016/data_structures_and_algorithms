@@ -1286,7 +1286,7 @@ import {
 // console.log('graphNods =>', graph2.toString())
 // console.log('nodesCount =>', graph2.nodesCount)
 
-// let graph3 = new UndirectedGraph()
+// let graph3 = new DirectedGraph()
 
 // console.log('-------------')
 // console.log('add 5 nodes to graph')
@@ -1396,48 +1396,108 @@ import {
 // console.log('graphNods ==>', complexWeightedGraph.toString())
 // console.log('nodesCount =>', complexWeightedGraph.nodesCount)
 
-let complexWeightedGraph2 = new ComplexWeightedGraph()
+// let complexWeightedGraph2 = new ComplexWeightedGraph()
 
-console.log('--------------------')
-console.log('add 6 vertexes to graph')
-console.log('--------------------')
-console.log('A =>', complexWeightedGraph2.addNode('A'))
-console.log('B =>', complexWeightedGraph2.addNode('B'))
-console.log('C =>', complexWeightedGraph2.addNode('C'))
-console.log('D =>', complexWeightedGraph2.addNode('D'))
-console.log('E =>', complexWeightedGraph2.addNode('E'))
-console.log('F =>', complexWeightedGraph2.addNode('F'))
+// console.log('--------------------')
+// console.log('add 6 vertexes to graph')
+// console.log('--------------------')
+// console.log('A =>', complexWeightedGraph2.addNode('A'))
+// console.log('B =>', complexWeightedGraph2.addNode('B'))
+// console.log('C =>', complexWeightedGraph2.addNode('C'))
+// console.log('D =>', complexWeightedGraph2.addNode('D'))
+// console.log('E =>', complexWeightedGraph2.addNode('E'))
+// console.log('F =>', complexWeightedGraph2.addNode('F'))
+
+// console.log('-------------')
+// console.log('add 8 edges to graph')
+// console.log('-------------')
+// console.log('A <==> B', complexWeightedGraph2.addEdge('A', 'B', 4))
+// console.log('A <==> C', complexWeightedGraph2.addEdge('A', 'C', 2))
+// console.log('B <==> E', complexWeightedGraph2.addEdge('B', 'E', 3))
+// console.log('C <==> D', complexWeightedGraph2.addEdge('C', 'D', 2))
+// console.log('C <==> F', complexWeightedGraph2.addEdge('C', 'F', 4))
+// console.log('D <==> E', complexWeightedGraph2.addEdge('D', 'E', 3))
+// console.log('D <==> F', complexWeightedGraph2.addEdge('D', 'F', 1))
+// console.log('E <==> F', complexWeightedGraph2.addEdge('E', 'F', 1))
+
+// console.log('--------------------------')
+// console.log('log graph nodes')
+// console.log('--------------------------')
+// console.log('graphNods ==>', complexWeightedGraph2.toString())
+// console.log('nodesCount =>', complexWeightedGraph2.nodesCount)
+
+// console.log('--------------------------')
+// console.log('test shortest Path')
+// console.log('--------------------------')
+// try {
+// 	console.log('A => E', complexWeightedGraph2.getShortestPathBetween('A','E'))
+// 	console.log('A => F', complexWeightedGraph2.getShortestPathBetween('A','F'))
+// 	console.log('A => D', complexWeightedGraph2.getShortestPathBetween('A','D'))
+
+// 	console.log('A => H', complexWeightedGraph2.getShortestPathBetween('X','E'))
+// 	console.log('F => P', complexWeightedGraph2.getShortestPathBetween('F','P'))
+// } catch (error) {
+//   console.log("error =>", error.message)
+// }
+
+// let complexWeightedGraph3 = new ComplexWeightedGraph()
+
+// console.log('-------------')
+// console.log('add 3 nodes to graph')
+// console.log('-------------')
+// console.log('A ==>', complexWeightedGraph3.addNode('A'))
+// console.log('B ==>', complexWeightedGraph3.addNode('B'))
+// console.log('C ==>', complexWeightedGraph3.addNode('C'))
+
+// console.log('-------------')
+// console.log('add 2 edges to graph')
+// console.log('-------------')
+// console.log('A => B', complexWeightedGraph3.addEdge('A', 'B'))
+// console.log('B => C', complexWeightedGraph3.addEdge('B', 'C'))
+
+// console.log('-------------')
+// console.log('hasCycle =>', complexWeightedGraph3.hasCycle())
+// console.log('-------------')
+
+// console.log('-------------')
+// console.log('add (cycle) edge to graph')
+// console.log('-------------')
+// console.log('C => A', complexWeightedGraph3.addEdge('C', 'A'))
+
+// console.log('-------------')
+// console.log('hasCycle =>', complexWeightedGraph3.hasCycle())
+// console.log('-------------')
+
+let complexWeightedGraph4 = new ComplexWeightedGraph()
 
 console.log('-------------')
-console.log('add 8 edges to graph')
+console.log('add 4 nodes to graph')
 console.log('-------------')
-console.log('A <==> B', complexWeightedGraph2.addEdge('A', 'B', 4))
-console.log('A <==> C', complexWeightedGraph2.addEdge('A', 'C', 2))
-console.log('B <==> E', complexWeightedGraph2.addEdge('B', 'E', 3))
-console.log('C <==> D', complexWeightedGraph2.addEdge('C', 'D', 2))
-console.log('C <==> F', complexWeightedGraph2.addEdge('C', 'F', 4))
-console.log('D <==> E', complexWeightedGraph2.addEdge('D', 'E', 3))
-console.log('D <==> F', complexWeightedGraph2.addEdge('D', 'F', 1))
-console.log('E <==> F', complexWeightedGraph2.addEdge('E', 'F', 1))
+console.log('A ==>', complexWeightedGraph4.addNode('A'))
+console.log('B ==>', complexWeightedGraph4.addNode('B'))
+console.log('C ==>', complexWeightedGraph4.addNode('C'))
+console.log('D ==>', complexWeightedGraph4.addNode('D'))
+
+console.log('-------------')
+console.log('add 5 edges to graph')
+console.log('-------------')
+console.log('A => B', complexWeightedGraph4.addEdge('A', 'B', 3))
+console.log('B => D', complexWeightedGraph4.addEdge('B', 'D', 4))
+console.log('C => D', complexWeightedGraph4.addEdge('C', 'D', 5))
+console.log('A => C', complexWeightedGraph4.addEdge('A', 'C', 1))
+console.log('B => C', complexWeightedGraph4.addEdge('B', 'C', 2))
 
 console.log('--------------------------')
 console.log('log graph nodes')
 console.log('--------------------------')
-console.log('graphNods ==>', complexWeightedGraph2.toString())
-console.log('nodesCount =>', complexWeightedGraph2.nodesCount)
+console.log('graphNods ==>', complexWeightedGraph4.toString())
+console.log('nodesCount =>', complexWeightedGraph4.nodesCount)
 
 console.log('--------------------------')
-console.log('test shortest Path')
+console.log('log MinSpanningTree nodes')
 console.log('--------------------------')
-try {
-	console.log('A => E', complexWeightedGraph2.getShortestPathBetween('A','E'))
-	console.log('A => F', complexWeightedGraph2.getShortestPathBetween('A','F'))
-	console.log('A => D', complexWeightedGraph2.getShortestPathBetween('A','D'))
-
-	console.log('A => H', complexWeightedGraph2.getShortestPathBetween('X','E'))
-	console.log('F => P', complexWeightedGraph2.getShortestPathBetween('F','P'))
-} catch (error) {
-  console.log("error =>", error.message)
-}
+let tree = complexWeightedGraph4.getMinSpanningTree()
+console.log('graphNods ==>', tree.toString())
+console.log('nodesCount =>', tree.nodesCount)
 
 //#endregion
