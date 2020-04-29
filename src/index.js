@@ -112,7 +112,7 @@ import {
 
 //#region Searching
 
-// testSort()
+testSort()
 
 //#endregion
 
@@ -1468,36 +1468,36 @@ import {
 // console.log('hasCycle =>', complexWeightedGraph3.hasCycle())
 // console.log('-------------')
 
-let complexWeightedGraph4 = new ComplexWeightedGraph()
+// let complexWeightedGraph4 = new ComplexWeightedGraph()
 
-console.log('-------------')
-console.log('add 4 nodes to graph')
-console.log('-------------')
-console.log('A ==>', complexWeightedGraph4.addNode('A'))
-console.log('B ==>', complexWeightedGraph4.addNode('B'))
-console.log('C ==>', complexWeightedGraph4.addNode('C'))
-console.log('D ==>', complexWeightedGraph4.addNode('D'))
+// console.log('-------------')
+// console.log('add 4 nodes to graph')
+// console.log('-------------')
+// console.log('A ==>', complexWeightedGraph4.addNode('A'))
+// console.log('B ==>', complexWeightedGraph4.addNode('B'))
+// console.log('C ==>', complexWeightedGraph4.addNode('C'))
+// console.log('D ==>', complexWeightedGraph4.addNode('D'))
 
-console.log('-------------')
-console.log('add 5 edges to graph')
-console.log('-------------')
-console.log('A => B', complexWeightedGraph4.addEdge('A', 'B', 3))
-console.log('B => D', complexWeightedGraph4.addEdge('B', 'D', 4))
-console.log('C => D', complexWeightedGraph4.addEdge('C', 'D', 5))
-console.log('A => C', complexWeightedGraph4.addEdge('A', 'C', 1))
-console.log('B => C', complexWeightedGraph4.addEdge('B', 'C', 2))
+// console.log('-------------')
+// console.log('add 5 edges to graph')
+// console.log('-------------')
+// console.log('A => B', complexWeightedGraph4.addEdge('A', 'B', 3))
+// console.log('B => D', complexWeightedGraph4.addEdge('B', 'D', 4))
+// console.log('C => D', complexWeightedGraph4.addEdge('C', 'D', 5))
+// console.log('A => C', complexWeightedGraph4.addEdge('A', 'C', 1))
+// console.log('B => C', complexWeightedGraph4.addEdge('B', 'C', 2))
 
-console.log('--------------------------')
-console.log('log graph nodes')
-console.log('--------------------------')
-console.log('graphNods ==>', complexWeightedGraph4.toString())
-console.log('nodesCount =>', complexWeightedGraph4.nodesCount)
+// console.log('--------------------------')
+// console.log('log graph nodes')
+// console.log('--------------------------')
+// console.log('graphNods ==>', complexWeightedGraph4.toString())
+// console.log('nodesCount =>', complexWeightedGraph4.nodesCount)
 
-console.log('--------------------------')
-console.log('log MinSpanningTree nodes')
-console.log('--------------------------')
-let tree = complexWeightedGraph4.getMinSpanningTree()
-console.log('graphNods ==>', tree.toString())
-console.log('nodesCount =>', tree.nodesCount)
+// console.log('--------------------------')
+// console.log('log MinSpanningTree nodes')
+// console.log('--------------------------')
+// let tree = complexWeightedGraph4.getMinSpanningTree()
+// console.log('graphNods ==>', tree.toString())
+// console.log('nodesCount =>', tree.nodesCount)
 
 //#endregion

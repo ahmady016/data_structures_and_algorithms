@@ -18,6 +18,21 @@ function bubbleSort(arr) {
   return arr
 }
 
+function bubbleSort2(arr) {
+  let sorted = true
+  for (let i = 0; i < arr.length; i++) {
+    sorted = true
+    for (let j = 1; j < arr.length - i; j++) {
+      if(arr[j-1] > arr[j]) {
+        [arr[j], arr[j-1]] = [arr[j-1], arr[j]]
+        sorted = false
+      }
+    }
+    if(sorted) break
+  }
+  return arr
+}
+
 function selectionSort(arr) {
   let len = arr.length,
       lowest = 0
@@ -33,6 +48,20 @@ function selectionSort(arr) {
   return arr
 }
 
+function selectionSort2(arr) {
+  let len = arr.length,
+      minIndex
+  for (let i = 0; i < len; i++) {
+    minIndex = i
+    for (let j = i; j < len; j++) {
+      if(arr[j] < arr[minIndex])
+        minIndex = j
+    }
+    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+  }
+  return arr
+}
+
 function insertionSort(arr) {
   let len = arr.length,
       currentValue,
@@ -44,6 +73,23 @@ function insertionSort(arr) {
       arr[j+1] = arr[j]
 
     arr[j+1] = currentValue
+  }
+  return arr
+}
+
+function insertionSort2(arr) {
+  let len = arr.length,
+      current, j
+  for (let i = 1; i < len; i++) {
+    current = arr[i]
+
+    j = i - 1
+    while(j >= 0 && arr[j] > current) {
+      arr[j+1] = arr[j]
+      j--
+    }
+
+    arr[j+1] = current
   }
   return arr
 }
@@ -108,6 +154,65 @@ function quickSort(arr, start = 0, end = arr.length) {
   }
   return arr
 }
+
+function partition(arr, start, end) {
+  let pivot = arr[end],
+      boundary = start - 1
+
+  for (let i = start; i <= end; i++) {
+    if(arr[i] <= pivot)
+      swap(arr, i, ++boundary)
+  }
+
+  return boundary
+}
+
+function quickSort2(arr, start = 0, end = arr.length - 1) {
+  if(start >= end) return;
+
+  let boundary = partition(arr, start, end)
+
+  quickSort2(arr, start, boundary - 1)
+  quickSort2(arr, boundary + 1, end)
+
+  return arr
+}
+//#endregion
+
+//#region CountingSort
+function countSort(arr) {
+  let counter = new Map()
+  for (let value of arr)
+    counter.set(value, (counter.get(value) || 0) + 1)
+
+  let k = 0
+  for (let [value, count] of counter) {
+    for (let i = 0; i < count; i++)
+      arr[k++] = value
+  }
+  return arr
+}
+//#endregion
+
+//#region BucketSort
+function _createBuckets(arr, numOfBuckets) {
+  let buckets = []
+  for (let i = 0; i < numOfBuckets; i++)
+    buckets.push([])
+  for (let value of arr)
+    buckets[Math.floor(Math.abs(value) / numOfBuckets)].push(value)
+  return buckets
+}
+function bucketSort(numOfBuckets) {
+  return function bucketSortOf(arr) {
+    let i = 0
+    for (let bucket of _createBuckets(arr, numOfBuckets)) {
+      for (let value of insertionSort(bucket))
+        arr[i++] = value
+    }
+    return arr
+  }
+}
 //#endregion
 
 //#region RadixSort
@@ -142,11 +247,23 @@ function radixSort(numbers) {
 
 //#region Test All Sort Algorithms
 export function testSort() {
-  // const smallList = genIntList(15)
-  // console.log("testSort -> smallList ---", smallList)
-  // console.log("testSort -> bubbleSort --", bubbleSort(smallList))
-  // console.log("testSort -> selectionSort", selectionSort(smallList))
-  // console.log("testSort -> insertionSort", insertionSort(smallList))
+  const smallList = genIntList(20, true),
+        _5bucketSort = bucketSort(5),
+        _10bucketSort = bucketSort(10)
+
+  console.log("testSort -> smallList ------>", smallList)
+  console.log("testSort -> bubbleSort ----->", bubbleSort(smallList))
+  console.log("testSort -> bubbleSort2 ---->", bubbleSort2(smallList))
+  console.log("testSort -> selectionSort -->", selectionSort(smallList))
+  console.log("testSort -> selectionSort2 ->", selectionSort(smallList))
+  console.log("testSort -> insertionSort -->", insertionSort(smallList))
+  console.log("testSort -> insertionSort2 ->", insertionSort2(smallList))
+  console.log("testSort -> mergeSort ------>", mergeSort(smallList))
+  console.log("testSort -> quickSort ------>", quickSort(smallList))
+  console.log("testSort -> quickSort2 ----->", quickSort2(smallList))
+  console.log("testSort -> countingSort --->", countSort(smallList))
+  console.log("testSort -> bucketSort 5 --->", _5bucketSort(smallList))
+  console.log("testSort -> bucketSort 10 -->", _10bucketSort(smallList))
 
   // const list1 = genSortedIntList(5)
   // const list2 = genSortedIntList(5)
@@ -183,14 +300,15 @@ export function testSort() {
   // comparePerformance(bigList, bubbleSort, selectionSort, insertionSort)
   // console.log("\n--------------- testSort bigList End ---------------------\n")
 
-  const midList = [...genSortedIntList(8000), ...genIntList(50)]
-  console.log("\n--------------- testSort midList Start ---------------------\n")
-  comparePerformance(midList, bubbleSort, selectionSort, insertionSort, mergeSort, quickSort, radixSort)
-  console.log("\n--------------- testSort midList End ---------------------\n")
+  // const midList = [...genSortedIntList(6700), ...genIntList(50)]
+  // console.log("\n--------------- testSort midList Start ---------------------\n")
+  // comparePerformance(midList, bubbleSort, bubbleSort, bubbleSort2, selectionSort, selectionSort2, insertionSort, insertionSort2, mergeSort, quickSort, quickSort2, countSort, radixSort)
+  // console.log("\n--------------- testSort midList End ---------------------\n")
 
   const bigList = genIntList(100000, true)
+  const _1000bucketSort = bucketSort(1000)
   console.log("\n--------------- testSort bigList Start ---------------------\n")
-  comparePerformance(bigList, bubbleSort, selectionSort, insertionSort, radixSort)
+  comparePerformance(bigList, bubbleSort, bubbleSort, bubbleSort2, selectionSort, selectionSort2, insertionSort, insertionSort2, countSort, _1000bucketSort, radixSort)
   console.log("\n--------------- testSort bigList End ---------------------\n")
 }
 //#endregion
