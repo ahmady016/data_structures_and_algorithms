@@ -105,14 +105,14 @@ import {
 
 //#region Searching
 
-// testSearch()
+testSearch()
 // testSubStringSearch()
 
 //#endregion
 
 //#region Searching
 
-testSort()
+// testSort()
 
 //#endregion
 
