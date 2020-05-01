@@ -62,13 +62,15 @@ import {
 	SimpleWeightedGraph
 } from './dataStructures/Graph'
 
+import { StringUtils } from './algorithms/StringUtils'
+
 //#region Basic Patterns
 
 // testSumUpTo()
 // testMissingNumbers()
 // testChunks()
 // testReverseString()
-// testPalindromeString()
+testPalindromeString()
 // testCharCount()
 // testRepeatedCharacter()
 
@@ -105,7 +107,7 @@ import {
 
 //#region Searching
 
-testSearch()
+// testSearch()
 // testSubStringSearch()
 
 //#endregion
@@ -1499,5 +1501,91 @@ testSearch()
 // let tree = complexWeightedGraph4.getMinSpanningTree()
 // console.log('graphNods ==>', tree.toString())
 // console.log('nodesCount =>', tree.nodesCount)
+
+//#endregion
+
+//#region String Manipulation Algorithms
+
+// let str1 = 'This is my Omar Khyrat best music',
+// 		str2 = 'alkd fpewqrp oirew lzk vlakj qweerty',
+// 		str3 = '    ',
+// 		str4 = null
+
+// console.log('--------------------------')
+// console.log('test countVowels')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.countVowels(str1))
+// console.log(str2 + ' -->', StringUtils.countVowels(str2))
+// console.log(str3 + ' -->', StringUtils.countVowels(str3))
+// console.log(str4 + ' -->', StringUtils.countVowels(str4))
+
+// console.log('--------------------------')
+// console.log('test reverse')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.reverse(str1))
+// console.log(str2 + ' -->', StringUtils.reverse(str2))
+// console.log(str3 + ' -->', StringUtils.reverse(str3))
+// console.log(str4 + ' -->', StringUtils.reverse(str4))
+
+// console.log('--------------------------')
+// console.log('test reverseWords')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.reverseWords(str1))
+// console.log(str2 + ' -->', StringUtils.reverseWords(str2))
+// console.log(str3 + ' -->', StringUtils.reverseWords(str3))
+// console.log(str4 + ' -->', StringUtils.reverseWords(str4))
+
+// console.log('--------------------------')
+// console.log('test removeDuplicates')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.removeDuplicates(str1))
+// console.log(str2 + ' -->', StringUtils.removeDuplicates(str2))
+// console.log(str3 + ' -->', StringUtils.removeDuplicates(str3))
+// console.log(str4 + ' -->', StringUtils.removeDuplicates(str4))
+
+// console.log('--------------------------')
+// console.log('test getMaxRepeatedCharByMap')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.getMaxRepeatedCharByMap(str1))
+// console.log(str2 + ' -->', StringUtils.getMaxRepeatedCharByMap(str2))
+// console.log(str3 + ' -->', StringUtils.getMaxRepeatedCharByMap(str3))
+// console.log(str4 + ' -->', StringUtils.getMaxRepeatedCharByMap(str4))
+
+// console.log('--------------------------')
+// console.log('test getMaxRepeatedCharByArray')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.getMaxRepeatedCharByArray(str1))
+// console.log(str2 + ' -->', StringUtils.getMaxRepeatedCharByArray(str2))
+// console.log(str3 + ' -->', StringUtils.getMaxRepeatedCharByArray(str3))
+// console.log(str4 + ' -->', StringUtils.getMaxRepeatedCharByArray(str4))
+
+// let manySpaceStr = '  ahmed    hamdy    ali       khaled   ',
+// 		onlySpaceStr = '       '
+// console.log('--------------------------')
+// console.log('test titleCase')
+// console.log('--------------------------')
+// console.log(str1 + ' -->', StringUtils.titleCase(str1))
+// console.log(str2 + ' -->', StringUtils.titleCase(str2))
+// console.log(str3 + ' -->', StringUtils.titleCase(str3))
+// console.log(str4 + ' -->', StringUtils.titleCase(str4))
+// console.log(manySpaceStr + ' -->', StringUtils.titleCase(manySpaceStr))
+// console.log(onlySpaceStr + ' -->', StringUtils.titleCase(onlySpaceStr))
+
+// let str5 = 'ABCD',
+// 		str6 = 'BCDA',
+// 		str7 = 'CDAB',
+// 		str8 = 'DABC',
+// 		str9 = 'DACB'
+
+// console.log('--------------------------')
+// console.log('test isRotation')
+// console.log('--------------------------')
+// console.log('str1= ' + str5 + ', str2= ' + str6, ' -->', StringUtils.isRotation(str5, str6))
+// console.log('str1= ' + str5 + ', str2= ' + str7, ' -->', StringUtils.isRotation(str5, str7))
+// console.log('str1= ' + str5 + ', str2= ' + str8, ' -->', StringUtils.isRotation(str5, str8))
+// console.log('str1= ' + str5 + ', str2= ' + str9, ' -->', StringUtils.isRotation(str5, str9))
+// console.log('str1= ' + str5 + ', str2= ' + str4, ' -->', StringUtils.isRotation(str5, str4))
+// console.log('str1= ' + str3 + ', str2= ' + str5, ' -->', StringUtils.isRotation(str3, str5))
+// console.log('str1= ' + str3 + ', str2= ' + str4, ' -->', StringUtils.isRotation(str3, str4))
 
 //#endregion

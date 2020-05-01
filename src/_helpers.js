@@ -52,6 +52,13 @@ export function getCounter(list) {
   return counter
 }
 
+export function getCounterMap(list) {
+  let counterMap = new Map()
+  for (let value of list)
+    counterMap.set(value, (counterMap.get(value) || 0) + 1)
+  return counterMap
+}
+
 export function numberBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
